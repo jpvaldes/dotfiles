@@ -34,7 +34,7 @@
 (ansi-color-for-comint-mode-on)
 ;
 ;;; Read .bash_profile
-;(setq explicit-bash-args '("--login" "--init-file" "/Users/valdesj/.bash_profile"))
+;(setq explicit-bash-args '("--login" "--init-file" "~/.bash_profile"))
 ;
 ;;; Show line number
 (line-number-mode 1)
@@ -140,7 +140,7 @@
 
 ;; Save backups in .emacs.d
 (setq backup-by-copying t ; don't clobber symlinks
-      backup-directory-alist '(("." . "/Users/valdesj/.emacs.d/backup-saves"))
+      backup-directory-alist '(("." . "~/.emacs.d/backup-saves"))
       delete-old-versions t
       kept-new-versions 6
       kept-old-versions 2
@@ -329,9 +329,9 @@
 ;;;----------------------------------------;;;
 ;;; Yasnippets
 ;;;----------------------------------------;;;
-;(add-to-list 'yas/root-directory "/Users/valdesj/.emacs.d/yasnippet-snippets")
+;(add-to-list 'yas/root-directory "~/.emacs.d/yasnippet-snippets")
 (require 'yasnippet)
-(setq yas-snippet-dirs '("/Users/valdesj/.emacs.d/yasnippet-snippets"))
+(setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets"))
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "<tab>") nil)
 (define-key yas-minor-mode-map (kbd "C-TAB") 'yas/expand)
