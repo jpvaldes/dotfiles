@@ -19,6 +19,9 @@
 (add-to-list 'company-backends 'company-ispell t)
 (add-to-list 'company-backends 'company-files t)
 (setq company-backends (remove 'company-ropemacs company-backends))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '(company-ispell))))
 
 (setq company-dabbrev-downcase nil)
 (setq company-dabbrev-ignore-case nil)

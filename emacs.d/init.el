@@ -1,7 +1,3 @@
-;; Future init.el
-;; Try to create a better configuration using modular init files for emacs
-;; .emacs is becoming difficult to navigate
-
 (defgroup jp nil
   "Custom configuration for dotemacs."
   :group 'local)
@@ -19,13 +15,22 @@
 (require 'cl)
 (require 'init-packages)
 (require 'init-util)
+;; When Mac, load the mac especific init
+(when (eq system-type 'darwin)
+  (require 'init-macosx)
+  (message "Loaded configuration for Mac OS X")
+  (require 'init-proxy)
+  (message "Proxy setup"))
+;; Integration with Cygwin in Windows
+(when (eq system-type 'windows-nt)
+  (require 'init-cygwin)
+  (message "Cygwin path added to Emacs."))
 
 (defcustom jp-modules
   '(init-core
 
     init-org
     init-eyecandy
-    ;init-macosx
 
     init-smartparens
 
@@ -33,7 +38,7 @@
     ;init-autocomplete
     init-company
 
-    init-vcs
+    ;init-vcs
     ;init-flycheck
 
     init-ido
@@ -45,6 +50,9 @@
     init-misc
     init-evil
     init-bindings
+
+    init-ispell
+    init-flyspell
     ; etc...
     )
   "Modules enabled for this configuration."
@@ -52,22 +60,3 @@
 
 (dolist (module jp-modules)
   (require module))
-
-;; When Mac, load the mac especific init
-(when (eq system-type 'darwin)
-  (require 'init-macosx)
-  (message "Loaded configuration for Mac OS X"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("3b819bba57a676edf6e4881bd38c777f96d1aa3b3b5bc21d8266fa5b0d0f1ebf" "bd115791a5ac6058164193164fd1245ac9dc97207783eae036f0bfc9ad9670e0" "56cb99174fad69feba8edd6663c592e77d77332fb4c4bb5be058ef459a426463" default)))
- '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
- '(help-at-pt-timer-delay 0.9))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
