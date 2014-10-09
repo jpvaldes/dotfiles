@@ -7,6 +7,18 @@
 ; find aspell and hunspell automatically
 ; lets do some spellying mistages 
 (cond
+ ((executable-find "ispell")
+  (setq ispell-program-name "ispell")
+  (setq ispell-dictionary "english")
+  (message "Using Ispell"))
+ ((executable-find "aspell")
+  (setq ispell-program-name "aspell")
+  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=english"))
+  (setq ispell-really-aspell t)
+  (setq ispell-list-command "--list"
+        ispell-personal-dictionary "~/.emacs.d/personal-dict")
+  (setq ispell-dictionary "english")
+  (message "Aspell has been found." ))
  ((executable-find "hunspell")
   (setq ispell-program-name "hunspell")
   (setq ispell-really-hunspell t)
@@ -68,18 +80,6 @@
        (require 'rw-hunspell)
        ))
   (message "Hunspell has been found: using it."))
- ((executable-find "ispell")
-  (setq ispell-program-name "ispell")
-  (setq ispell-dictionary "english")
-  (message "Using Ispell"))
- ((executable-find "aspell")
-  (setq ispell-program-name "aspell")
-  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=english"))
-  (setq ispell-really-aspell t)
-  (setq ispell-list-command "--list"
-        ispell-personal-dictionary "~/.emacs.d/personal-dict")
-  (setq ispell-dictionary "english")
-  (message "Aspell has been found." ))
 )
  
 (provide 'init-ispell)
