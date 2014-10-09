@@ -7,7 +7,8 @@
 ; find aspell and hunspell automatically
 (cond
  ((executable-find "ispell")
-  (setq ispell-program-name "ispell"))
+  (setq ispell-program-name "ispell")
+  (message "Using Ispell"))
  ((executable-find "aspell")
   (setq ispell-program-name "aspell")
   (setq ispell-extra-args '("--sug-mode=ultra" "--lang=english"))
@@ -20,16 +21,5 @@
   (message "Hunspell has been found."))
 )
 (setq ispell-dictionary "english")
-;; Enable flyspell for text and other files
-;; The way autocomplete is setup, when a word is mispelled
-;; do alt-<tab> to cycle between corrected options
-;(dolist (hooks '(text-mode-hook
-;		 LaTeX-mode-hook))
-;  (add-hook hooks (lambda () (flyspell-mode 1))))
-;(add-hook 'org-mode-hook '(lambda () (flyspell-prog-mode)))
-;(dolist (modes '(emacs-lisp-mode-hook
-;		 inferior-lisp-mode-hook
-;		 python-mode-hook))
-;  (add-hook modes '(lambda () (flyspell-prog-mode))))
  
 (provide 'init-ispell)
