@@ -59,7 +59,9 @@ export LC_CTYPE=$LC_ALL
 export HTTP_PROXY=http://149.203.231.111:4711
 export HTTPS_PROXY=149.203.231.111:4711
 export ALL_PROXY=149.203.231.111:4711
-export ftp_proxy=$HTTP_PROXY
+export ftp_proxy=$ALL_PROXY
+git config --global http.proxy $HTTP_PROXY
+git config --global https.proxy https://149.203.231.111:4711
 
 ## or no proxy at all...
 function noproxy {
@@ -67,6 +69,8 @@ function noproxy {
     export HTTPS_PROXY=""
     export ALL_PROXY=""
     export ftp_proxy=""
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
 }
 
 ## Disable shell warning of new mail
