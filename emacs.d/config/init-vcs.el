@@ -1,19 +1,20 @@
 (after 'vc-git
   (require-package 'magit)
 
-  (after 'magit
-    (setq magit-diff-options '("--histogram"))
-    (setq magit-stage-all-confirm nil)
+  (require 'magit)
+  ; (after 'magit
+  ;   (setq magit-diff-options '("--histogram"))
+  ;   (setq magit-stage-all-confirm nil)
 
-    (defadvice magit-status (around my-magit-fullscreen activate)
-      (window-configuration-to-register :magit-fullscreen)
-      ad-do-it
-      (delete-other-windows))
+  ;   (defadvice magit-status (around my-magit-fullscreen activate)
+  ;     (window-configuration-to-register :magit-fullscreen)
+  ;     ad-do-it
+  ;     (delete-other-windows))
 
-    (defun my-magit-quit-session ()
-      (interactive)
-      (kill-buffer)
-      (jump-to-register :magit-fullscreen)))
+  ;   (defun my-magit-quit-session ()
+  ;     (interactive)
+  ;     (kill-buffer)
+  ;     (jump-to-register :magit-fullscreen)))
 
   (after 'evil
     (after 'git-commit-mode

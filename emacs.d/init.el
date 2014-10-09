@@ -38,7 +38,7 @@
     ;init-autocomplete
     init-company
 
-    ;init-vcs
+    init-vcs
     ;init-flycheck
 
     init-ido
