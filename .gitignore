@@ -1,0 +1,15 @@
+# Emacs
+elpa/
+history
+recentf
+savehist
+ac-dict/
+ac-comphist.dat
+auto-save-list/
+backup-saves/
+tramp
+snippets/
+.python-environments/
+
+# Mac OS X
+*.DS_Store
