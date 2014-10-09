@@ -21,6 +21,9 @@
   (message "Loaded configuration for Mac OS X")
   (require 'init-proxy)
   (message "Proxy setup"))
+(when (eq system-type 'gnu/linux')
+  (require 'init-proxy)
+  (message "Proxy setup"))
 ;; Integration with Cygwin in Windows
 (when (eq system-type 'windows-nt)
   (require 'init-cygwin)
