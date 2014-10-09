@@ -39,7 +39,7 @@
 
 (setq company-global-modes
       '(not
-        eshell-mode comint-mode org-mode))
+        eshell-mode comint-mode))
 
 (add-hook 'after-init-hook 'global-company-mode)
 
