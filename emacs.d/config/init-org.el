@@ -56,6 +56,8 @@
 
 ;; Include the latex-exporter
 (require 'ox-latex)
+;; Make sure cdlatex is installed
+(require-package 'cdlatex)
 ;; Add minted to the defaults packages to include when exporting.
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 ;; Add also booktabs
