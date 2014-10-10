@@ -1,7 +1,7 @@
 (after 'vc-git
   (require-package 'magit)
 
-  (require 'magit)
+  ; (require 'magit)
   ; (after 'magit
   ;   (setq magit-diff-options '("--histogram"))
   ;   (setq magit-stage-all-confirm nil)
@@ -16,15 +16,15 @@
   ;     (kill-buffer)
   ;     (jump-to-register :magit-fullscreen)))
 
-  (after 'evil
-    (after 'git-commit-mode
-      (add-hook 'git-commit-mode-hook 'evil-emacs-state))
+  ; (after 'evil
+  ;   (after 'git-commit-mode
+  ;     (add-hook 'git-commit-mode-hook 'evil-emacs-state))
 
-    (after 'magit-blame
-      (defadvice magit-blame-file-on (after advice-for-magit-blame-file-on activate)
-        (evil-emacs-state))
-      (defadvice magit-blame-file-off (after advice-for-magit-blame-file-off activate)
-        (evil-exit-emacs-state))))
+  ;   (after 'magit-blame
+  ;     (defadvice magit-blame-file-on (after advice-for-magit-blame-file-on activate)
+  ;       (evil-emacs-state))
+  ;     (defadvice magit-blame-file-off (after advice-for-magit-blame-file-off activate)
+  ;       (evil-exit-emacs-state))))
 
   (if (display-graphic-p)
       (progn
