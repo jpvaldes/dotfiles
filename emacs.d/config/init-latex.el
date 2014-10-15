@@ -1,3 +1,5 @@
+(require-package 'auctex)
+
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
@@ -9,7 +11,7 @@
 ;;; Use Skim as viewer and enable sync with the viewer
 (add-hook 'LaTeX-mode-hook (lambda ()
                              (push
-                              '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+                              '("latexmk" "latexmk -shell-escape -pdf %s" TeX-run-TeX nil t
                                 :help "Run latexmk on file")
                               TeX-command-list)))
 (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
@@ -19,4 +21,5 @@
 
 (add-hook 'LaTeX-mode-hook '(lambda ()
 			      (local-set-key (kbd "RET") 'newline-and-indent)))
+
 (provide 'init-latex)
