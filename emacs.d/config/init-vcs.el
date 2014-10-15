@@ -33,7 +33,12 @@
         (require 'git-gutter-fringe)
         ;;; Show information on right fringe
         ; (setq git-gutter-fr:side 'right-fringe)
-        (global-git-gutter-mode t))
+        (setq git-gutter:window-width 2)
+        (setq git-gutter-fr:modified-sign " ")
+        (setq git-gutter-fr:added-sign "+")
+        (setq git-gutter-fr:deleted-sign "-")
+        (global-git-gutter-mode t)
+        )
     )
 
   )

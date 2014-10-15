@@ -75,7 +75,7 @@
 (setq initial-frame-alist '((top . 0) (left . 0) (width . 140) (height . 70)))
 
 ;;; fringe
-(fringe-mode 16)
+(fringe-mode 12)
 
 ;; ediff
 (setq ediff-split-window-function 'split-window-horizontally) ;; side-by-side diffs
