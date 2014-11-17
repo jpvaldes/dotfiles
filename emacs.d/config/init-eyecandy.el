@@ -111,7 +111,8 @@
 
 ;; Linum mode
 ;(setq linum-format "%4d  ") ;; Avoid glitches - Graphene
+(setq linum-format "%d")
 ;(set-face-attribute 'linum nil :height 130)
-;(global-linum-mode 1)
+(global-linum-mode 1)
 
 (provide 'init-eyecandy)
