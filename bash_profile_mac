@@ -26,7 +26,8 @@ alias em='/usr/local/bin/emacsclient --no-wait'
 ## Open Emacs client using a new frame
 alias emn='/usr/local/bin/emacsclient -c --no-wait'
 ## Making emacs default editor
-export EDITOR=emacs
+# export EDITOR=emacs
+export EDITOR='/usr/local/bin/emacsclient --no-wait'
 export VISUAL=$EDITOR
 
 ## IPython notebook
@@ -216,12 +217,45 @@ colors() {
 	done
 }
 
+# Functions to grep source code files
+# Blatantly copied from http://alexteichman.com/octo/blog/2013/12/08/quickly-navigating-large-repositories-from-the-terminal/
+# and adapted to work fine in MacOS X
+# Usage example to open a result from cgrep in $EDITOR: cgrep imread | yank 6
+# Example to make a replace: sed -i 's/Name2/Name/g' `cfiles`
+function cfiles {
+    find . -regex '.*\.h$|.*\.hpp$|.*\.c$|.*\.cpp|.*\.cc$'
+}
+
+function cgrep {
+   2>/dev/null grep -n "$@" $(cfiles) | nl | grep "$@"
+}
+
+function hfiles {
+    find . -regex '.*\.h|.*\.hpp'
+}
+
+function hgrep {
+    2>/dev/null grep -n "$@" $(hfiles) | nl | grep "$@"
+}
+
+function pyfiles {
+    find . -regex '.*\.py$' | grep -v '#'
+}
+
+function pygrep {
+   2>/dev/null grep -n "$@" $(pyfiles) | nl | grep "$@"
+}
+
+function yank {
+    grep "^\s*$@\s" | awk '{print $2}' | sed 's/-\([0-9]*\)-/:\1:/g' | awk -F: '{print $1 " +" $2}' | awk '{print $2 " " $1}' | xargs ${EDITOR:?EDITOR must be set.}
+}
+
 ##
 # Your previous /Users/valdesj/.bash_profile file was backed up as /Users/valdesj/.bash_profile.macports-saved_2014-06-13_at_16:26:01
 ##
 
 # MacPorts Installer addition on 2014-06-13_at_16:26:01: adding an appropriate PATH variable for use with MacPorts.
-#export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 ## Stuff for homebrew, see

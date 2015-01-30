@@ -58,9 +58,10 @@
 ;(set-default-font "Dejavu Sans Mono-10")
 ;(set-default-font "Source Code Pro-10")
 
-;; theme
-(require-package 'monokai-theme)
-(load-theme 'monokai t)
+;; theme - monokai not working as of 191114
+; (require-package 'monokai-theme)
+; (load-theme 'monokai t)
+(load-theme 'misterioso t)
 (set-face-attribute 'region nil
                     :background "gray39")
 ;;; highlight the current line; set a custom face, so we can
