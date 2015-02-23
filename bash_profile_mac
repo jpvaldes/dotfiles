@@ -276,7 +276,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Completion for pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # To use homebrew's dirs instead of pyenv:
 # export PYENV_ROOT=/usr/local/opt/pyenv
