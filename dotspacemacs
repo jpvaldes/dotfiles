@@ -164,6 +164,9 @@
                   ('linum-mode)))
               )
     (add-hook 'prog-mode-hook 'linum-mode)
+    ;; Company mode: complete files path
+    (add-to-list 'company-backends 'company-files)
+    
 )
 
 ;; Custom variables
