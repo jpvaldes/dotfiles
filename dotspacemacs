@@ -166,8 +166,14 @@
     (add-hook 'prog-mode-hook 'linum-mode)
     ;; Company mode: complete files path
     (add-to-list 'company-backends 'company-files)
-    
-)
+    ;; ;; Some latex setup. Better as a layer. Commenting out.
+    ;; (defun my-latex-mode-setup ()
+    ;;   (setq-local company-backends
+    ;;               (append '(company-math-symbols-latex company-latex-commands)
+    ;;                       company-backends)))
+    ;; (add-hook 'LaTeX-mode-hook 'my-latex-mode-setup)
+    ;; (add-hook 'TeX-mode-hook 'my-latex-mode-setup)
+  )
 
 ;; Custom variables
 ;; ----------------
