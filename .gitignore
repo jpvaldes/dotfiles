@@ -13,3 +13,16 @@ snippets/
 
 # Mac OS X
 *.DS_Store
+
+# Misc
+*~
+*.swp
+
+# cython ipython magic dir
+ipython/cython
+ipython/profile_default/log/
+ipython/profile_default/pid/
+ipython/profile_default/security/
+ipython/profile_default/startup/
+ipython/profile_default/db/
+ipython/profile_default/history.sqlite
