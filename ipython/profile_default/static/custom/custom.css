@@ -53,7 +53,7 @@ div.cell.text_cell.rendered {
 }
 
 div.text_cell_render{
-    font-family: 'Georgia', 'Josefin Sans', serif;
+    font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', 'URW Palladio L', serif;
     line-height: 145%;
     font-size: 125%;
     font-weight: 500;
