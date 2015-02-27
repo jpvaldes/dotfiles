@@ -35,6 +35,9 @@ NOTEDIR=/Users/valdesj/Documents/notebooks
 alias inb='ipython notebook --notebook-dir=$NOTEDIR --browser="safari"'
 alias ins='ipython notebook --notebook-dir=$NOTEDIR --no-browser --port=7777'
 
+## IPython console
+alias ipc='ipython qtconsole --style=monokai'
+
 ## Get rid of the executable bit when copying from windows shares
 ## Change maxdepth > 1 to enter directories
 alias losex='find . -maxdepth 3 -type f -exec chmod -x {} +'
