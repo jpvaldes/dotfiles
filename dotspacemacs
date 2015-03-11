@@ -112,9 +112,6 @@
                                       (width . 120)
                                       (height . 60))
                 )
-  ;;; Set auto-fill for text mode
-  (add-hook 'text-mode-hook 'turn-on-auto-fill)
-  (add-hook 'org-mode-hook 'turn-on-auto-fill)
   ;;; Sane calendar defaults: dd/mm/yyyy :)
   (defvar calendar-date-style 'european)
   )
@@ -162,6 +159,16 @@
                 (progn
                   ('turn-on-auto-fill)
                   ('linum-mode)))
+              )
+    ;;; Set auto-fill for text mode
+    (add-hook 'text-mode-hook 'turn-on-auto-fill)
+    (add-hook 'org-mode-hook 'turn-on-auto-fill)
+    (add-hook 'LaTeX-mode-hook
+              (lambda ()
+                (progn
+                  ('turn-on-auto-fill)
+                  ('LaTeX-math-mode)
+                  ('turn-on-reftex)))
               )
     (add-hook 'prog-mode-hook 'linum-mode)
     ;; Company mode: complete files path
