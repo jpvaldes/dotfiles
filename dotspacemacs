@@ -180,12 +180,19 @@
     (add-hook 'LaTeX-mode-hook
               (lambda ()
                 (push
-                 '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+                 '("latexmk" "latexmk -pdf -shell-escape %s" TeX-run-TeX nil t
                    :help "Run latexmk on file")
                  TeX-command-list)))
     (add-hook 'TeX-mode-hook '(lambda ()
                                 (setq TeX-command-default "latexmk"))
               )
+    ;; also xelatex
+    (add-hook 'LaTeX-mode-hook
+              (lambda ()
+                (push
+                 '("latexmk-xelatex" "latexmk -xelatex -shell-escape %s" TeX-run-TeX nil t
+                   :help "Run latexmk on file using XeLaTeX")
+                 TeX-command-list)))
     ;; Use skim as viewer and set it up with sync
     ;; Should allow to bounce forth and back between editor and viewer
     (setq TeX-view-program-selection '((output-pdf "Skim")))
