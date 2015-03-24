@@ -60,12 +60,12 @@ export LC_CTYPE=$LC_ALL
 
 ## Proxy settings
 
-export HTTP_PROXY=http://149.203.231.111:4711
-export HTTPS_PROXY=http://149.203.231.111:4711
-export ALL_PROXY=http://149.203.231.111:4711
-export ftp_proxy=$ALL_PROXY
-git config --global http.proxy $HTTP_PROXY
-git config --global https.proxy http://149.203.231.111:4711
+# export HTTP_PROXY=http://149.203.231.111:4711
+# export HTTPS_PROXY=http://149.203.231.111:4711
+# export ALL_PROXY=http://149.203.231.111:4711
+# export ftp_proxy=$ALL_PROXY
+# git config --global http.proxy $HTTP_PROXY
+# git config --global https.proxy http://149.203.231.111:4711
 
 ## or no proxy at all...
 function noproxy {
