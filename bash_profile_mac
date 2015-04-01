@@ -299,11 +299,16 @@ export FREESURFER_HOME=/Applications/freesurfer
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 # Matlab path
-export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/maci64/MATLAB
+# export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/maci64/MATLAB
+export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/matlab
 echo "MATLAB PATH: $MATLABCMD"
 
 echo "Adding ANTS to path:"
 export ANTSPATH=$HOME/Source/external/antsbin/bin
 echo "ANTSPATH: $ANTSPATH"
+export PATH=$PATH:$ANTSPATH
+echo
+
+echo "Adding user's bin/ to path"
 export PATH=$PATH:$ANTSPATH
 echo
