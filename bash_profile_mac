@@ -304,11 +304,11 @@ export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/matlab
 echo "MATLAB PATH: $MATLABCMD"
 
 echo "Adding ANTS to path:"
-export ANTSPATH=$HOME/Source/external/antsbin/bin
+export ANTSPATH=$HOME/Source/external/ants-2.1.0/bin
 echo "ANTSPATH: $ANTSPATH"
 export PATH=$PATH:$ANTSPATH
 echo
 
 echo "Adding user's bin/ to path"
-export PATH=$PATH:$ANTSPATH
+export PATH=$PATH:$HOME/bin
 echo
