@@ -14,7 +14,7 @@
  dotspacemacs-configuration-layers '(python
                                      better-defaults
                                      (auto-completion :variables
-                                                      auto-completion-use-tab-instead-of-enter t
+                                                      auto-completion-use-tab-instead-of-enter nil
                                                       auto-completion-enable-company-help-tooltip nil)
                                      auctex
                                      c-c++
@@ -179,12 +179,13 @@
     '(progn
        (define-key company-active-map (kbd "C-n") 'company-select-next)
        (define-key company-active-map (kbd "C-p") 'company-select-previous)
-       ;; (define-key company-active-map (kbd "C-j") 'company-complete-common)
-       ;; (define-key company-active-map (kbd "TAB") 'company-select-next)
-       ;; (define-key company-active-map [tab] 'company-select-next)
-       ;; (define-key company-active-map [S-tab] 'company-select-previous)
+       ;; (define-key company-active-map (kbd "C-j") 'company-complete-common-or-cycle)
+       (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+       (define-key company-active-map [tab] 'company-complete-common-or-cycle)
+       (define-key company-active-map [S-tab] 'company-select-previous)
        ;; Company mode: complete files path
        (add-to-list 'company-backends 'company-files)
+       (setq company-selection-wrap-around t)
        ))
   (add-hook 'markdown-mode-hook
             (lambda ()
