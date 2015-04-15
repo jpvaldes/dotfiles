@@ -15,7 +15,7 @@
                                      better-defaults
                                      (auto-completion :variables
                                                       auto-completion-use-tab-instead-of-enter t
-                                                      auto-completion-enable-company-help-tooltip t)
+                                                      auto-completion-enable-company-help-tooltip nil)
                                      auctex
                                      c-c++
                                      html
@@ -25,7 +25,7 @@
                                      (git :variables
                                           git-gutter-use-fringe t)
                                      themes-megapack
-                                     osx
+                                     ;; osx
                                      evil-commentary
                                      )
  ;; A list of packages and/or extensions that will not be install and loaded.
@@ -147,6 +147,8 @@
                 )
   ;;; Sane calendar defaults: dd/mm/yyyy :)
   (defvar calendar-date-style 'european)
+  ;; Powerline separator
+  (setq powerline-default-separator 'nil)
   ;; Alt doesn';TODO:  work in Mac OS X to type other characters
   ;; Tell emacs to delete with the delete key and that the left-Alt
   ;; is meta while the right is a modifier (AltGr)
@@ -179,8 +181,8 @@
        (define-key company-active-map (kbd "C-p") 'company-select-previous)
        ;; (define-key company-active-map (kbd "C-j") 'company-complete-common)
        ;; (define-key company-active-map (kbd "TAB") 'company-select-next)
-       (define-key company-active-map [tab] 'company-select-next)
-       (define-key company-active-map [S-tab] 'company-select-previous)
+       ;; (define-key company-active-map [tab] 'company-select-next)
+       ;; (define-key company-active-map [S-tab] 'company-select-previous)
        ;; Company mode: complete files path
        (add-to-list 'company-backends 'company-files)
        ))
