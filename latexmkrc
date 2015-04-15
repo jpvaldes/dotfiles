@@ -1,4 +1,4 @@
-# generate pdf and run skim as viewer
+# generate pdf and run skim as viewer, do not stop for errors
 $pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 %O %S';
 $pdf_previewer = 'open -a skim';
 
