@@ -142,7 +142,7 @@
   (setq-default org-agenda-files '("~/Documents/org")
                 initial-frame-alist '((top . 0)
                                       (left . 0)
-                                      (width . 120)
+                                      (width . 130)
                                       (height . 60))
                 )
   ;;; Sane calendar defaults: dd/mm/yyyy :)
@@ -187,6 +187,9 @@
        ;; (add-to-list 'company-backends 'company-files)
        ;; (setq company-selection-wrap-around t)
        ))
+  ;; linum mode for programming
+  (add-hook 'prog-mode-hook 'linum-mode)
+  ;; auto fill and linum mode in markdown
   (add-hook 'markdown-mode-hook
             (lambda ()
               (progn
@@ -196,19 +199,21 @@
   ;; Set auto-fill for text and others modes
   (add-hook 'text-mode-hook 'turn-on-auto-fill)
   (add-hook 'org-mode-hook 'turn-on-auto-fill)
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (progn
-                ('turn-on-auto-fill)
-                ('LaTeX-math-mode)
-                ('turn-on-reftex)))
-            )
-  (add-hook 'prog-mode-hook 'linum-mode)
+  ;; math mode and reftex on in auctex
+  ;; some issues with auto-completion layer
+  ;; (add-hook 'LaTeX-mode-hook
+  ;;           (lambda ()
+  ;;             (progn
+  ;;               ('turn-on-auto-fill)
+  ;;               ('LaTeX-math-mode)
+  ;;               ('turn-on-reftex)))
+  ;;           )
   ;; Some more auctex options
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq reftex-plug-into-AUCTeX t)
   (setq TeX-PDF-mode t)
+  ;; (setq LaTeX-math-mode t) ;; already set in auctex layer
   ;; make latexmak compilation available
   (add-hook 'LaTeX-mode-hook
             (lambda ()
