@@ -184,8 +184,8 @@
        (define-key company-active-map [tab] 'company-complete-common-or-cycle)
        (define-key company-active-map [S-tab] 'company-select-previous)
        ;; Company mode: complete files path
-       (add-to-list 'company-backends 'company-files)
-       (setq company-selection-wrap-around t)
+       ;; (add-to-list 'company-backends 'company-files)
+       ;; (setq company-selection-wrap-around t)
        ))
   (add-hook 'markdown-mode-hook
             (lambda ()
@@ -228,6 +228,7 @@
                TeX-command-list)))
   ;; Use skim as viewer and set it up with sync
   ;; Should allow to bounce forth and back between editor and viewer
+  ;; From skim, cmd+shift+click to go to text in emacs
   (setq TeX-view-program-selection '((output-pdf "Skim")))
   (setq TeX-view-program-list
         '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
@@ -256,7 +257,7 @@
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}@" . "\\subparagraph*{%s}")))
   ;; Previewing with refresh in auctex
-  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  ;; (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   )
 
 ;; Custom variables
