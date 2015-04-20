@@ -263,6 +263,8 @@
                  ("\\subparagraph{%s}@" . "\\subparagraph*{%s}")))
   ;; Previewing with refresh in auctex
   ;; (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  ;; Highlight colors when searching are awful by default
+  (custom-set-faces '(evil-search-highlight-persist-highlight-face ((t (:background "selectedMenuItemColor")))))
   )
 
 ;; Custom variables
