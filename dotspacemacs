@@ -70,7 +70,7 @@
  ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
  ;; size to make separators look not too crappy.
  dotspacemacs-default-font '("Source Code Pro"
-                             :size 14
+                             :size 15
                              :weight normal
                              :width normal
                              :powerline-scale 1.1)
@@ -213,6 +213,7 @@
   (setq TeX-parse-self t)
   (setq reftex-plug-into-AUCTeX t)
   (setq TeX-PDF-mode t)
+  (setq TeX-electric-sub-and-superscript t)
   ;; (setq LaTeX-math-mode t) ;; already set in auctex layer
   ;; make latexmak compilation available
   (add-hook 'LaTeX-mode-hook
