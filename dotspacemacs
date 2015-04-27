@@ -164,6 +164,22 @@
     ;;      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
     ;;        ("http" . "149.203.231.111:4711")
     ;;        ("https" . "149.203.231.111:4711")))
+    ;; mac switch meta key
+    (defun mac-switch-meta nil
+      "Switch meta between Option and Command. This is for
+emacs-mac port.  The cocoa emacs uses ns- prefixed keys. When
+using this function, do command-x instead of alt-x, for example."
+      (interactive)
+      (if (eq mac-option-modifier nil)
+          (progn
+            (setq mac-option-modifier 'meta)
+            (setq mac-command-modifier 'hyper) )
+        (progn
+          (setq mac-option-modifier nil)
+          (setq mac-command-modifier 'meta)
+          )
+        )
+      )
     )
   (when (eq system-type 'windows-nt)
     (message "Setting up cygwin")
