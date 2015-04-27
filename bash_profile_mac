@@ -154,29 +154,31 @@ set_prompt () {
     ArrowPrompt='\342\226\266'
     HappySmiley='\342\230\272'
 
+    PS1="$Reset"
     # Add a bright white exit status for the last command
-    PS1="$RESET$PURPLE[\!]"
+    # PS1="$RESET$PURPLE[\!]"
     #PS1="$White\$? "
     # If it was successful, print a green check mark. Otherwise, print
     # a red X.
-    if [[ $Last_Command == 0 ]]; then
-        PS1+="$Green$Checkmark "
-    else
-        PS1="$ALERT[\!]$Reset"
-        PS1+="$Red$FancyX "
-    fi
+    # if [[ $Last_Command == 0 ]]; then
+    #     PS1+="$Green$Checkmark "
+    # else
+    #     PS1="$ALERT[\!]$Reset"
+    #     PS1+="$Red$FancyX "
+    # fi
     # If root, just print the host in red. Otherwise, print the current user
     # and host in green.
     if [[ $EUID == 0 ]]; then
-        PS1+="$Red\\h "
+         PS1+="$Red\\h "
     else
-        PS1+="$CYAN\\u$GREEN@\\h:"
+         PS1+="$CYAN\\u$GREEN@\\h:"
     fi
     # Print the working directory and prompt marker in blue, and reset
     # the text color to the default.
     #PS1+="$Blue\\w \\\$$Reset "
     #PS1+="$BYELLOW\w$NORMAL \$ "
-    PS1+="$BYELLOW\w$NORMAL $Red$ArrowPrompt$Reset "
+    # PS1+="$BYELLOW\w$NORMAL $Red$ArrowPrompt$Reset "
+    PS1+="$BYELLOW\W$NORMAL $Red>$Reset "
 }
 PROMPT_COMMAND='set_prompt'
 # Something interesting: to have different colors for text entry and default
