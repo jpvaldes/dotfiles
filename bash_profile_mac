@@ -54,8 +54,9 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 
 ## By default, the number of max. open files for a terminal process
-## is very low. Only 256. Increase that to 2048.
-ulimit -n 4096
+## is very low. Only 256. Increase that.
+ulimit -n 65536
+ulimit -u 2048
 
 ## Defining locales, sad...
 export LC_ALL=de_DE.UTF-8

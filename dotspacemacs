@@ -19,6 +19,11 @@
                                      auctex
                                      c-c++
                                      html
+                                     lua
+                                     csharp
+                                     javascript
+                                     shell-scripts
+                                     ruby
                                      markdown
                                      syntax-checking
                                      org
