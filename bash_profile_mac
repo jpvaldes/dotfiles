@@ -22,7 +22,7 @@ alias more='less'
 ## Emacs daemon
 alias emd='/Applications/Emacs.app/Contents/MacOS/Emacs --daemon'
 ## Open Emacs client using existing frame
-# alias em='/usr/local/bin/emacsclient --no-wait'
+alias em='/usr/local/bin/emacsclient --no-wait'
 ## Open Emacs client using a new frame
 # alias emn='/usr/local/bin/emacsclient -c --no-wait'
 ## Making emacs default editor
