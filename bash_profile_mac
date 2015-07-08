@@ -285,6 +285,15 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+# miniconda as alternative to homebrew's python
+function pyconda {
+    unset PYTHONPATH
+}
+
+function pybrew {
+    export PYTHONPATH=/usr/local/lib/python2.7/site-packages/:$PYTHONPATH
+}
+
 # Completion for pyenv
 # if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
