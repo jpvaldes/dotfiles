@@ -22,6 +22,7 @@
                       auto-completion-enable-company-help-tooltip nil)
      better-defaults
      emacs-lisp
+     version-control
      (git :variables
           git-gutter-use-fringe t)
      markdown
@@ -29,7 +30,7 @@
      shell
      syntax-checking
      python
-     auctex
+     latex
      c-c++
      html
      lua
