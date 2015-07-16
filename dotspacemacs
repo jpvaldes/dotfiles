@@ -22,9 +22,9 @@
                       auto-completion-enable-company-help-tooltip nil)
      better-defaults
      emacs-lisp
-     version-control
      (git :variables
           git-gutter-use-fringe t)
+     version-control
      markdown
      org
      shell
@@ -40,6 +40,7 @@
      ruby
      themes-megapack
      evil-commentary
+     ess
      ;; osx
      )
    ;; List of additional packages that will be installed wihout being
