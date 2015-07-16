@@ -16,8 +16,11 @@ alias lm='ll |more'
 alias tree='tree -Csuh'
 alias du='du -kh'
 alias df='df -kTh'
-
 alias more='less'
+
+## Readlink like in linux
+## Install coreutils from homebrew first to make it work
+command -v greadlink >/dev/null 2>&1 && alias readlink='greadlink -f'
 
 ## Emacs daemon
 alias emd='/Applications/Emacs.app/Contents/MacOS/Emacs --daemon'
@@ -64,6 +67,7 @@ export LANG=$LC_ALL
 export LC_CTYPE=$LC_ALL
 
 ## Proxy settings
+# not needed anymore
 
 # export HTTP_PROXY=http://149.203.231.111:4711
 # export HTTPS_PROXY=http://149.203.231.111:4711
