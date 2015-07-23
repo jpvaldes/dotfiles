@@ -38,9 +38,9 @@ export EDITOR='emacsclient -c --alternate-editor="" -nw'
 export VISUAL=$EDITOR
 
 ## IPython notebook
-NOTEDIR=/Users/valdesj/Documents/notebooks
-alias inb='ipython notebook --notebook-dir=$NOTEDIR --browser="safari"'
-alias ins='ipython notebook --notebook-dir=$NOTEDIR --no-browser --port=7777'
+NOTEDIR=$HOME/Documents/notebooks
+alias ipnbs='ipython notebook --notebook-dir=$NOTEDIR --browser="safari"'
+alias ipnb='ipython notebook --notebook-dir=$NOTEDIR --no-browser --port=7777'
 
 ## IPython console
 alias ipc='ipython qtconsole --style=monokai'

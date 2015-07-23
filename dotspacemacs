@@ -22,8 +22,7 @@
                       auto-completion-enable-company-help-tooltip nil)
      better-defaults
      emacs-lisp
-     (git :variables
-          git-gutter-use-fringe t)
+     git
      version-control
      markdown
      org
