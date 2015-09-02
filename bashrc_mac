@@ -1,5 +1,6 @@
 #Setting up the terminal
-printf "\n ** Loading .bashrc **\n"
+# Note: for git to work, redirect all output to standard error 1>&2 or /dev/null
+# printf "\n ** Loading .bashrc **\n" 1>&2
 export CLICOLOR=1
 
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -157,12 +158,12 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/matlab
 # echo "MATLAB PATH: $MATLABCMD"
 
-echo "Adding ANTS to path:"
+# echo "Adding ANTS to path:"
 export ANTSPATH=$HOME/Source/external/ants-2.1.0/bin
-echo "ANTSPATH: $ANTSPATH"
+# echo "ANTSPATH: $ANTSPATH"
 export PATH=$PATH:$ANTSPATH
 # echo
 
-echo "Adding user's bin/ to path"
+# echo "Adding user's bin/ to path"
 export PATH=$PATH:$HOME/bin
 # echo
