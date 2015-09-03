@@ -23,6 +23,13 @@ alias more='less'
 ## Install coreutils from homebrew first to make it work
 command -v greadlink >/dev/null 2>&1 && alias readlink='greadlink -f'
 
+## IPython notebook
+NOTEDIR=$HOME/Documents/notebooks
+alias ipnbs='jupyter notebook --notebook-dir=$NOTEDIR --browser="safari"'
+alias ipnb='jupyter notebook --notebook-dir=$NOTEDIR --no-browser --port=7777'
+
+## IPython console
+alias ipc='jupyter qtconsole --style=monokai'
 ## Get rid of the executable bit when copying from windows shares
 ## Change maxdepth > 1 to enter directories
 alias losex='find . -maxdepth 3 -type f -exec chmod -x {} +'
