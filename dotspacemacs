@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+;; -*- mode: dotspacemacs -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -79,13 +79,16 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(misterioso
-                         hc-zenburn
+   dotspacemacs-themes '(
+                         sanityinc-tomorrow-eighties
+                         leuven
+                         misterioso
                          molokai
                          monokai
                          solarized-light
                          solarized-dark
-                         leuven
+                         ample
+                         gruvbox
                          zenburn)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -177,6 +180,8 @@ layers configuration."
                 )
   ;;; Sane calendar defaults: dd/mm/yyyy :)
   (defvar calendar-date-style 'european)
+  ;;; diff-hl
+  (setq diff-hl-side 'left)
   ;; Powerline separator
   (setq powerline-default-separator 'nil)
   ;; Alt doesn';TODO:  work in Mac OS X to type other characters
@@ -317,24 +322,3 @@ using this function, do command-x instead of alt-x, for example."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
- '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
- '(ring-bell-function (quote ignore) t)
- '(safe-local-variable-values (quote ((py-indent-offset . 4)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(evil-search-highlight-persist-highlight-face ((t (:background "selectedMenuItemColor")))))
