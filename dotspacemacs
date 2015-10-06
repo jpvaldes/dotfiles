@@ -238,6 +238,9 @@ using this function, do command-x instead of alt-x, for example."
        ;; (add-to-list 'company-backends 'company-files)
        ;; (setq company-selection-wrap-around t)
        ))
+  ;; python company-backends
+  (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code
+                                                         :with company-yasnippet)))
   ;; linum mode for programming
   (add-hook 'prog-mode-hook 'linum-mode)
   ;; auto fill and linum mode in markdown
