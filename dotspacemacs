@@ -20,7 +20,7 @@
      (auto-completion :variables
                       auto-completion-use-tab-instead-of-enter nil
                       auto-completion-enable-company-help-tooltip t
-                      auto-completion-enable-sort-by-usage t)
+                      auto-completion-enable-snippets-in-popup t)
      better-defaults
      emacs-lisp
      git
