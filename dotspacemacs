@@ -243,6 +243,10 @@ using this function, do command-x instead of alt-x, for example."
   ;; python company-backends
   (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code
                                                          :with company-yasnippet)))
+  ;; complete text with underscores
+  ;; from: https://github.com/company-mode/company-mode/issues/408
+  (setq company-dabbrev-code-modes t
+        company-dabbrev-code-everywhere t)
   ;; linum mode for programming
   (add-hook 'prog-mode-hook 'linum-mode)
   ;; auto fill and linum mode in markdown
@@ -321,7 +325,7 @@ using this function, do command-x instead of alt-x, for example."
   ;; Previewing with refresh in auctex
   ;; (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   ;; Highlight colors when searching are awful by default
-  (custom-set-faces '(evil-search-highlight-persist-highlight-face ((t (:background "selectedMenuItemColor")))))
+  ;; (custom-set-faces '(evil-search-highlight-persist-highlight-face ((t (:background "selectedMenuItemColor")))))
   )
 
 
@@ -333,11 +337,3 @@ using this function, do command-x instead of alt-x, for example."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values (quote ((py-indent-offset . 4)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(evil-search-highlight-persist-highlight-face ((t (:background "selectedMenuItemColor")))))
