@@ -20,7 +20,7 @@
      (auto-completion :variables
                       auto-completion-use-tab-instead-of-enter nil
                       auto-completion-enable-company-help-tooltip t
-                      auto-completion-enable-snippets-in-popup t
+                      ;; auto-completion-enable-snippets-in-popup t
                       )
      better-defaults
      emacs-lisp
@@ -44,6 +44,7 @@
      ess
      autopep8
      cdlatex
+     ox-reveal
      ;; osx
      )
    ;; List of additional packages that will be installed wihout being
