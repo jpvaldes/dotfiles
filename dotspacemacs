@@ -20,7 +20,8 @@
      (auto-completion :variables
                       auto-completion-use-tab-instead-of-enter nil
                       auto-completion-enable-company-help-tooltip t
-                      auto-completion-enable-snippets-in-popup t)
+                      auto-completion-enable-snippets-in-popup t
+                      )
      better-defaults
      emacs-lisp
      git
@@ -183,6 +184,13 @@ layers configuration."
                 )
   ;;; Sane calendar defaults: dd/mm/yyyy :)
   (defvar calendar-date-style 'european)
+  ;;; CD-latex insert \(\) that works nice in Lisp
+  ;;; but not in latex (sigh!)
+  (setq cdlatex-math-symbol-alist
+        '((?1 ("\\(" "\\["))
+          (?2 ("\\)" "\\]"))
+          (?3 ("\\lvert" "\\lVert"))
+          (?4 ("\\rvert" "\\rVert"))))
   ;;; diff-hl
   (setq diff-hl-side 'left)
   ;; Powerline separator
