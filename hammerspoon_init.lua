@@ -20,7 +20,8 @@ appDefs = {
   i = 'iterm',
   c = 'Google Chrome',
   e = 'Emacs',
-  m = 'Mail'
+  m = 'Mail',
+  x = 'KeePassX'
 }
 -- launch the apps
 for key, app in pairs(appDefs) do
