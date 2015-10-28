@@ -126,8 +126,9 @@ function yank {
 
 # Precedence for user binaries
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/Users/valdesj/miniconda/bin:$PATH
 # Python path
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages/:$PYTHONPATH
+# export PYTHONPATH=/usr/local/lib/python2.7/site-packages/:$PYTHONPATH
 
 # Just installed bash_completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -166,7 +167,7 @@ export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/matlab
 # echo "MATLAB PATH: $MATLABCMD"
 
 # echo "Adding ANTS to path:"
-export ANTSPATH=$HOME/Source/external/ants-2.1.0/bin
+export ANTSPATH=$HOME/Source/external/antsbin/bin
 # echo "ANTSPATH: $ANTSPATH"
 export PATH=$PATH:$ANTSPATH
 # echo

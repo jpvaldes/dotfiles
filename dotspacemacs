@@ -251,8 +251,15 @@ using this function, do command-x instead of alt-x, for example."
        ;; (setq company-selection-wrap-around t)
        ))
   ;; python company-backends
-  (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code
-                                                         :with company-yasnippet)))
+  ;; see spacemacs issue 2323
+  (setq company-backends-python-mode
+        '((company-anaconda :with company-yasnippet)
+          (company-dabbrev-code company-gtags company-etags company-keywords :with company-yasnippet)
+          (company-files :with company-yasnippet)
+          (company-dabbrev :with company-yasnippet)
+          ))
+  (setq company-transformers '(spacemacs//company-transformer-cancel
+                               company-sort-by-backend-importance))
   ;; complete text with underscores
   ;; from: https://github.com/company-mode/company-mode/issues/408
   (setq company-dabbrev-code-modes t
