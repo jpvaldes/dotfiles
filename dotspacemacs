@@ -42,6 +42,7 @@
      themes-megapack
      evil-commentary
      ess
+     yaml
      autopep8
      cdlatex
      ox-reveal
