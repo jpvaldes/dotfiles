@@ -253,12 +253,12 @@ using this function, do command-x instead of alt-x, for example."
        ))
   ;; python company-backends
   ;; see spacemacs issue 2323
-  (setq company-backends-python-mode
-        '((company-anaconda :with company-yasnippet)
-          (company-dabbrev-code company-gtags company-etags company-keywords :with company-yasnippet)
-          (company-files :with company-yasnippet)
-          (company-dabbrev :with company-yasnippet)
-          ))
+  ;; (setq company-backends-python-mode
+  ;;       '((company-anaconda :with company-yasnippet)
+  ;;         (company-dabbrev-code company-gtags company-etags company-keywords :with company-yasnippet)
+  ;;         (company-files :with company-yasnippet)
+  ;;         (company-dabbrev :with company-yasnippet)
+  ;;         ))
   (setq company-transformers '(spacemacs//company-transformer-cancel
                                company-sort-by-backend-importance))
   ;; complete text with underscores
