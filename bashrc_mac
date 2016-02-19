@@ -29,7 +29,8 @@ alias ipnbs='jupyter notebook --notebook-dir=$NOTEDIR --browser="safari"'
 alias ipnb='jupyter notebook --notebook-dir=$NOTEDIR --no-browser --port=7777'
 
 ## IPython console
-alias ipc='jupyter qtconsole --style=monokai'
+# alias ipc='jupyter qtconsole --style=monokai'
+alias ipc='jupyter qtconsole --style=fruity --gui-completion=droplist --ConsoleWidget.font_size=16 --ConsoleWidget.font_family="Anonymous Pro"'
 ## Get rid of the executable bit when copying from windows shares
 ## Change maxdepth > 1 to enter directories
 alias losex='find . -maxdepth 3 -type f -exec chmod -x {} +'
