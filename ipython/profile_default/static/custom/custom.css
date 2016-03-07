@@ -156,9 +156,9 @@ div.text_cell_render{
                     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
                 },
-                displayAlign: 'center', // Change this to 'center' to center equations.
+                displayAlign: 'left', // Change this to 'center' to center equations.
                 "HTML-CSS": {
-                    styles: {'.MathJax_Display': {"margin": 4}}
+                    styles: {'.MathJax_Display': {"margin": 2}}
                 }
         });
 </script>
