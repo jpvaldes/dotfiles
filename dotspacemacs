@@ -24,7 +24,12 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-enable-sort-by-usage t)
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-return-key-behavior nil
+                      auto-completion-complete-with-key-sequence "jk"
+                      auto-completion-complete-with-key-sequence-delay 0.2
+                      )
      better-defaults
      c-c++
      csharp
@@ -36,6 +41,7 @@ values."
      latex
      lua
      markdown
+     octave
      org
      python
      (shell :variables
