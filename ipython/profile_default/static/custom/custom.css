@@ -79,23 +79,10 @@ div.text_cell_render{
     font-weight: 900;
     /* text-shadow: 3px 3px 3px #aaa; */
 }
-/*
-.text_cell_render h1 {
-    font-family: Flux, 'Ubuntu Condensed', serif;
-    font-style:regular;
-    font-weight: 400;    
-    font-size: 30pt;
-    text-align: center;
-    line-height: 100%;
-    color: #335082;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-    display: block;
-}
-*/
+
 .text_cell_render h1 {
     font-weight: 600;
-    font-size: 50pt;
+    font-size: 32pt;
     line-height: 100%;
     color: #234765;
     margin-bottom: 0.1em;
@@ -104,7 +91,7 @@ div.text_cell_render{
 }
 
 .text_cell_render h2 {
-    font-size: 30pt;
+    font-size: 22pt;
     font-weight: 550;
     margin-bottom: 0.1em;
     margin-top: 0.1em;
@@ -113,7 +100,7 @@ div.text_cell_render{
 }	
 
 .text_cell_render h3 {
-    font-size: 22pt;
+    font-size: 20pt;
     font-weight: 550
     text-align: left;
     margin-bottom: 0.1em;
@@ -146,7 +133,7 @@ div.text_cell_render{
 .text_cell_render h6 { /*use this for copyright note*/
     font-family: 'Ubuntu Condensed', sans-serif;
     font-weight: 300;
-    font-size: 16pt;
+    font-size: 15pt;
     line-height: 100%;
     color: #252525;
     text-align: right;
