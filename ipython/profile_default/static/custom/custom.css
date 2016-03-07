@@ -70,7 +70,15 @@ div.text_cell_render{
     margin-right:auto;
 }
 
+/* Adjustment of monospace font within text block*/
+.text_cell_render code {
+    font-family: 'Source Code Pro';
+}
 
+.text_cell_render p code {
+    font-size: 90%;
+}
+/* */
 
 /* Formatting for header cells */
 .text_cell_render h1, .text_cell_render h2, .text_cell_render h3,
@@ -82,7 +90,7 @@ div.text_cell_render{
 
 .text_cell_render h1 {
     font-weight: 600;
-    font-size: 32pt;
+    font-size: 28pt;
     line-height: 100%;
     color: #234765;
     margin-bottom: 0.1em;
@@ -158,7 +166,7 @@ div.text_cell_render{
                 },
                 displayAlign: 'left', // Change this to 'center' to center equations.
                 "HTML-CSS": {
-                    styles: {'.MathJax_Display': {"margin": 2}}
+                    styles: {'.MathJax_Display': {"margin": 4}}
                 }
         });
 </script>
