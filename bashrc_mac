@@ -42,6 +42,10 @@ alias losew='find . -maxdepth 3 -type d -exec chmod 755 {} +'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 
+## use up and down arrow to search history!
+bind '"\e[A"':history-search-backward
+bind '"\e[B"':history-search-forward
+
 ## By default, the number of max. open files for a terminal process
 ## is very low. Only 256. Increase that.
 ulimit -n 65536
@@ -127,7 +131,6 @@ function yank {
 
 # Precedence for user binaries
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=/Users/valdesj/miniconda/bin:$PATH
 # Python path
 # export PYTHONPATH=/usr/local/lib/python2.7/site-packages/:$PYTHONPATH
 
@@ -166,6 +169,8 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 # export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/maci64/MATLAB
 export MATLABCMD=/Applications/MATLAB_R2013b.app/bin/matlab
 # echo "MATLAB PATH: $MATLABCMD"
+# pymatbridge python setup
+export MATLAB_EXECUTABLE=$MATLABCMD
 
 # echo "Adding ANTS to path:"
 export ANTSPATH=$HOME/Source/external/antsbin/bin
@@ -173,6 +178,10 @@ export ANTSPATH=$HOME/Source/external/antsbin/bin
 export PATH=$PATH:$ANTSPATH
 # echo
 
+# echo "Adding ASHS (fastashs) to the path:"
+export ASHS_ROOT=$HOME/Source/external/ashs
+
 # echo "Adding user's bin/ to path"
 export PATH=$PATH:$HOME/bin
 # echo
+export PATH=$PATH:/Users/valdesj/abin
