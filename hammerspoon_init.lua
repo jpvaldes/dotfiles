@@ -9,6 +9,7 @@ hs.window.animationDuration = 0
 local cact = {"cmd", "alt", "ctrl"}
 local ca = {"cmd", "alt"}
 local cas = {"cmd", "alt", "shift"}
+local cta = {"ctrl", "alt"}
 
 --- say something on the screen
 hs.hotkey.bind(cact, "W", function()
@@ -226,14 +227,14 @@ hs.hotkey.bind(cact, "[", function()
 end)
 
 --- move focused window to left screen on multimonitor set up
-hs.hotkey.bind(cact, "r", function()
+hs.hotkey.bind(cta, "y", function()
                  local win = hs.window.focusedWindow()
                  local leftScreen = hs.screen.allScreens()[2]:name()
 
                  win:moveToScreen(leftScreen)
 end)
 
-hs.hotkey.bind(cact, "t", function()
+hs.hotkey.bind(cta, "g", function()
                  local win = hs.window.focusedWindow()
                  local rightScreen = hs.screen.allScreens()[1]:name()
 
