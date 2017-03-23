@@ -37,6 +37,10 @@ alias eg='emacsclient -c --alternate-editor=""'
 export EDITOR='emacsclient -c --alternate-editor="" -nw' 
 export VISUAL=$EDITOR
 
+# 21st century but the PS1 for dumb terminals like
+# Emacs Tramps has to be simple
+[ $TERM = "dumb" ] && PS1='$ '
+
 ## IPython notebook
 NOTEDIR=$HOME/Documents/notebooks
 alias ipnbs='ipython notebook --notebook-dir=$NOTEDIR --browser="safari"'
