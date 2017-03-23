@@ -33,9 +33,11 @@ values."
      better-defaults
      c-c++
      csharp
+     dockerfile
      emacs-lisp
      ess
      evil-commentary
+     extra-langs
      git
      html
      latex
