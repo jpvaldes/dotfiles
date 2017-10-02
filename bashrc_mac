@@ -48,6 +48,9 @@ alias losew='find . -maxdepth 3 -type d -exec chmod 755 {} +'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 
+# let's have emacs handling text files
+alias edit='emacsclient -t $1'
+
 ## use up and down arrow to search history!
 bind '"\e[A"':history-search-backward
 bind '"\e[B"':history-search-forward
@@ -102,7 +105,6 @@ set_prompt () {
 }
 # PROMPT_COMMAND='set_prompt'
 export PS1="\[\033[38;5;3m\][\A]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;12m\]\u\[$(tput sgr0)\]\[\033[38;5;5m\]@\[$(tput sgr0)\]\[\033[38;5;9m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;2m\]>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
 # Functions to grep source code files
 # Blatantly copied from http://alexteichman.com/octo/blog/2013/12/08/quickly-navigating-large-repositories-from-the-terminal/
 # and adapted to work fine in MacOS X
