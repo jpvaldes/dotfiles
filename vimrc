@@ -125,8 +125,6 @@ if has('gui_running')
 	    set guifont=Hack\ 12
     elseif g:os == "Windows"
 	    set guifont=Hack:h12
-    else
-        set guifont=Hack:h15
     endif
     set guicursor+=a:blinkon0 " turn off blinking cursor
     set lines=50
