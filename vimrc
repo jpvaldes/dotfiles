@@ -8,7 +8,8 @@ filetype plugin indent on
 set ruler
 set history=1000
 set hidden
-set spell spelllang=en_us
+" set spell 
+set spelllang=en_us
 " stop certain movements from always going to the first character of a line
 set nostartofline
 
@@ -57,7 +58,7 @@ nnoremap <Leader>q :bd <enter>
 " access the copy buffer
 nnoremap <Leader>x "+
 
-""" Python
+""" Python 3
 augroup python3
     au! BufEnter *.py setlocal omnifunc=python3complete#Complete
 augroup END
@@ -91,23 +92,49 @@ Plug 'godlygeek/tabular'
 " jedi-vim python plugin
 Plug 'davidhalter/jedi-vim'
 
+" eye candy
+Plug 'itchyny/lightline.vim'
+
 call plug#end()
+
+" Helping code to detect system
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+	    let g:os="Windows"
+    else
+	    let g:os=system("uname")
+    endif
+endif
 
 " Aesthetics
 set number
 set cursorline
-colorscheme 
+" if lightline installed:
+set noshowmode
 " set termguicolors
 set t_Co=256 " Is this still necessary?
 if has('gui_running')
     set guioptions-=T
     set guioptions-=r
     set guioptions-=R
-    colorscheme monokain
-    set guifont=Hack\ 12
+    colorscheme molokai
+    " let s:uname=system("uname")
+    if g:os == "Darwin\n"
+    	set guifont=Hack:h15
+    elseif g:os == "Linux"
+	    set guifont=Hack\ 12
+    elseif g:os == "Windows"
+	    set guifont=Hack:h12
+    else
+        set guifont=Hack:h15
+    endif
     set guicursor+=a:blinkon0 " turn off blinking cursor
-    set lines=60
+    set lines=50
     set columns=90
+else
+    if g:os == "Darwin\n"
+        colorscheme molokai
+    endif
 endif
 
 """ Autocompletion - mucomplete
