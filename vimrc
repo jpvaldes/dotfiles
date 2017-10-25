@@ -126,6 +126,8 @@ if has('gui_running')
     set guioptions-=T
     set guioptions-=r
     set guioptions-=R
+    " linux subsystem on Windows beeps after error, this should disable it
+    set belloff=all
     colorscheme Benokai
     " let s:uname=system("uname")
     if g:os == "Darwin\n"
