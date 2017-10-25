@@ -12,6 +12,8 @@ set hidden
 set spelllang=en_us
 " stop certain movements from always going to the first character of a line
 set nostartofline
+" Whether to treat underscore *_* as word (but not WORD) separator
+" set iskeyword-=_
 
 """ Encoding
 if has('multi_byte')
@@ -31,11 +33,6 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-
-""" Text wrapping
-set textwidth=79
-set colorcolumn=80
-set nowrap
 
 """ Search
 set hlsearch
@@ -57,11 +54,13 @@ nnoremap <Leader>w :w <enter>
 nnoremap <Leader>q :bd <enter>
 " access the copy buffer
 nnoremap <Leader>x "+
+" buffer switch
+nnoremap gb :ls<CR>:b<Space>
 
 """ Python 3
-augroup python3
-    au! BufEnter *.py setlocal omnifunc=python3complete#Complete
-augroup END
+" augroup python3
+"     au! BufEnter *.py setlocal omnifunc=python3complete#Complete
+" augroup END
 
 """ Plugins
 if has("win32")
@@ -80,11 +79,14 @@ Plug 'sirver/ultisnips'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 
-" extra syntax
+" extra lang syntax
+Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'maedoc/stan.vim'
 
 " make tables
 Plug 'godlygeek/tabular'
@@ -94,6 +96,7 @@ Plug 'davidhalter/jedi-vim'
 
 " eye candy
 Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -106,8 +109,14 @@ if !exists("g:os")
     endif
 endif
 
-" Aesthetics
-set number
+""" Aesthetics
+" Numbers and relative numbers depending on mode
+set number relativenumber
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 set cursorline
 " if lightline installed:
 set noshowmode
@@ -117,7 +126,7 @@ if has('gui_running')
     set guioptions-=T
     set guioptions-=r
     set guioptions-=R
-    colorscheme molokai
+    colorscheme Benokai
     " let s:uname=system("uname")
     if g:os == "Darwin\n"
     	set guifont=Hack:h15
@@ -131,9 +140,15 @@ if has('gui_running')
     set columns=90
 else
     if g:os == "Darwin\n"
-        colorscheme molokai
+        colorscheme heroku
     endif
 endif
+
+""" Text wrapping: wrap when the textwidth limit is reached
+" I will put this here because I am not sure a plugin is messing with this
+set textwidth=80    " Use gq to reformat (or gqip, gqq)
+set colorcolumn=+1  " Relative to the textwidth variable instead of absolute
+set nowrap
 
 """ Autocompletion - mucomplete
 set completeopt=menuone,noinsert,noselect
@@ -150,11 +165,15 @@ let g:UltiSnipsJumpForwardTrigger="<C-J>"
 let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
 """ Pandoc plugin
-augroup pandoc_syntax
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-    au! BufNewFile,BufFilePre,BufRead *.markdown set filetype=markdown.pandoc
-augroup END
-
-let g:pandoc#syntax#conceal#use = 0
+" Pretty text formatting using conceal
+let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ['python', 'vim', 'make',
             \  'bash=sh', 'html', 'css', 'scss', 'javascript']
+" somehow textwidth was reset at 0 when pandoc was loaded
+" maybe because the formatting mode defaultes to soft
+let g:pandoc#formatting#textwidth = 80
+let g:pandoc#formatting#mode = "h"
+
+""" Vimgutter plugin
+" shorter update times (default 4s)
+set updatetime=1000
