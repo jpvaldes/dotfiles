@@ -130,8 +130,8 @@ if has('gui_running')
     " let s:uname=system("uname")
     if g:os == "Darwin\n"
     	set guifont=Hack:h15
-    elseif g:os == "Linux"
-	    set guifont=Hack\ 12
+    elseif g:os == "Linux\n"
+	    set guifont=Hack\ 11
     elseif g:os == "Windows"
 	    set guifont=Hack:h12
     endif
