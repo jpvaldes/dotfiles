@@ -72,7 +72,6 @@ endif
 " basics
 Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
-Plug 'flazz/vim-colorschemes'
 
 " general purpose
 Plug 'sirver/ultisnips'
@@ -97,6 +96,8 @@ Plug 'davidhalter/jedi-vim'
 " eye candy
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
@@ -128,14 +129,16 @@ if has('gui_running')
     set guioptions-=R
     " linux subsystem on Windows beeps after error, this should disable it
     set belloff=all
-    colorscheme Benokai
     " let s:uname=system("uname")
     if g:os == "Darwin\n"
     	set guifont=Hack:h15
+        colorscheme base16-gruvbox-dark-hard
     elseif g:os == "Linux\n"
 	    set guifont=Hack\ 11
+        colorscheme Benokai
     elseif g:os == "Windows"
 	    set guifont=Hack:h12
+        colorscheme Benokai
     endif
     set guicursor+=a:blinkon0 " turn off blinking cursor
     set lines=50
