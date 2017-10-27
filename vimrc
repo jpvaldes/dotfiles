@@ -88,6 +88,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'maedoc/stan.vim'
 
 " make tables
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 
 " jedi-vim python plugin
@@ -119,10 +120,9 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 set cursorline
-" if lightline installed:
-set noshowmode
-" set termguicolors
+set noshowmode " if lightline installed
 set t_Co=256 " Is this still necessary?
+set background=dark
 if has('gui_running')
     set guioptions-=T
     set guioptions-=r
@@ -132,18 +132,23 @@ if has('gui_running')
     " let s:uname=system("uname")
     if g:os == "Darwin\n"
     	set guifont=Hack:h15
-        colorscheme base16-gruvbox-dark-hard
+        let g:lightline = {'colorscheme': 'jellybeans'}
+        let g:gruvbox_contrast_dark = "medium"
+        colorscheme gruvbox
+        set lines=70
+        set columns=120
     elseif g:os == "Linux\n"
 	    set guifont=Hack\ 11
         colorscheme Benokai
     elseif g:os == "Windows"
 	    set guifont=Hack:h12
         colorscheme Benokai
+        set lines=50
+        set columns=90
     endif
     set guicursor+=a:blinkon0 " turn off blinking cursor
-    set lines=50
-    set columns=90
 else
+    set termguicolors
     if g:os == "Darwin\n"
         colorscheme heroku
     endif
@@ -173,7 +178,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 " Pretty text formatting using conceal
 let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ['python', 'vim', 'make',
-            \  'bash=sh', 'html', 'css', 'scss', 'javascript']
+            \  'bash=sh', 'html', 'css', 'scss', 'javascript', 'yaml', 'R']
 " somehow textwidth was reset at 0 when pandoc was loaded
 " maybe because the formatting mode defaultes to soft
 let g:pandoc#formatting#textwidth = 80
