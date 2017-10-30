@@ -151,6 +151,10 @@ else
     set termguicolors
     if g:os == "Darwin\n"
         colorscheme heroku
+    elseif g:os == "Linux\n"
+        let g:lightline = {'colorscheme': 'jellybeans'}
+        let g:gruvbox_contrast_dark = "hard"
+        colorscheme gruvbox
     endif
 endif
 
