@@ -1,0 +1,7 @@
+# Many things break in tmux on Mac without this command
+set-option -g default-command "reattach-to-user-namespace -l /usr/local/bin/zsh"
+
+# copy paste on os x
+# https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+# bind-key -T copy-mode-vi Enter copy-pipe "reattach-to-user-namespace pbcopy"
