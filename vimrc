@@ -150,7 +150,9 @@ if has('gui_running')
 else
     set termguicolors
     if g:os == "Darwin\n"
-        colorscheme heroku
+        let g:lightline = {'colorscheme': 'jellybeans'}
+        let g:gruvbox_contrast_dark = "medium"
+        colorscheme gruvbox
     elseif g:os == "Linux\n"
         let g:lightline = {'colorscheme': 'jellybeans'}
         let g:gruvbox_contrast_dark = "hard"
@@ -187,6 +189,9 @@ let g:pandoc#syntax#codeblocks#embeds#langs = ['python', 'vim', 'make',
 " maybe because the formatting mode defaultes to soft
 let g:pandoc#formatting#textwidth = 80
 let g:pandoc#formatting#mode = "h"
+" change folding mode so that all folds are displayed and not only
+" the higher level headers
+let g:pandoc#folding#mode = "stacked"
 
 """ Vimgutter plugin
 " shorter update times (default 4s)
