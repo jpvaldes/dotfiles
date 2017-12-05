@@ -137,7 +137,6 @@ if has('gui_running')
     " let s:uname=system("uname")
     if g:os == "Darwin\n"
     	set guifont=Hack:h15
-        let g:lightline = {'colorscheme': 'jellybeans'}
         let g:gruvbox_contrast_dark = "medium"
         colorscheme gruvbox
         set lines=70
@@ -155,15 +154,27 @@ if has('gui_running')
 else
     set termguicolors
     if g:os == "Darwin\n"
-        let g:lightline = {'colorscheme': 'jellybeans'}
         let g:gruvbox_contrast_dark = "medium"
         colorscheme gruvbox
     elseif g:os == "Linux\n"
-        let g:lightline = {'colorscheme': 'jellybeans'}
         let g:gruvbox_contrast_dark = "hard"
         colorscheme gruvbox
     endif
 endif
+
+""" lightline setup
+" Set colorscheme and
+" Add git branch name to lightline using vim-fugitive
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head'
+    \ },
+    \ }
 
 """ Text wrapping: wrap when the textwidth limit is reached
 " I will put this here because I am not sure a plugin is messing with this
