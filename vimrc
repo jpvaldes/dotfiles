@@ -79,9 +79,13 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-" Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
+
+" async syntax checking (older alternative is syntastic)
 Plug 'w0rp/ale'
+
+" git plugin
+Plug 'tpope/vim-fugitive'
 
 " extra lang syntax
 Plug 'vim-pandoc/vim-pandoc'
