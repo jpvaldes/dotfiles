@@ -69,8 +69,8 @@ nnoremap gb :ls<CR>:b<Space>
 augroup jp
     autocmd!
 
-    autocmd FileType markdown setlocal spell textwidth=80
-    autocmd FileType make,automake setlocal noexpandtab
+    autocmd FileType markdown setlocal spell textwidth=80 list
+    autocmd FileType make,automake setlocal noexpandtab list
     autocmd FileType gitcommit setlocal spell textwidth=76 colorcolumn=77
 augroup END
 
