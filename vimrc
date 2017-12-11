@@ -8,7 +8,7 @@ filetype plugin indent on
 set ruler
 set history=1000
 set hidden
-" set spell 
+" set spell
 set spelllang=en_us
 " stop certain movements from always going to the first character of a line
 set nostartofline
@@ -42,6 +42,9 @@ set ignorecase
 set smartcase " don't ignore capital letters
 " nnoremap <leader><space> :nohls <enter> " clear highlighted searches
 
+""" keep some lines above or below when scrolling
+set scrolloff = 3
+
 """ NetRW
 let g:netrw_liststyle = 1
 let g:netrw_sizestyle = "H"
@@ -61,6 +64,15 @@ nnoremap gb :ls<CR>:b<Space>
 " augroup python3
 "     au! BufEnter *.py setlocal omnifunc=python3complete#Complete
 " augroup END
+
+""" Own augroup customizing file types
+augroup jp
+    autocmd!
+
+    autocmd FileType markdown setlocal spell textwidth=80
+    autocmd FileType make,automake setlocal noexpandtab
+    autocmd FileType gitcommit setlocal spell textwidth=76 colorcolumn=77
+augroup END
 
 """ Plugins
 if has("win32")
