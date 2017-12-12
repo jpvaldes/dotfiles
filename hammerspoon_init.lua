@@ -22,7 +22,7 @@ appDefs = {
   c = 'Google Chrome',
   e = 'Emacs',
   m = 'Mail',
-  x = 'KeePassX'
+  x = 'KeePassXC'
 }
 -- launch the apps
 for key, app in pairs(appDefs) do
