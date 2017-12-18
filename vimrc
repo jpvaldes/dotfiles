@@ -43,7 +43,7 @@ set smartcase " don't ignore capital letters
 " nnoremap <leader><space> :nohls <enter> " clear highlighted searches
 
 """ keep some lines above or below when scrolling
-set scrolloff = 3
+set scrolloff=3
 
 """ NetRW
 let g:netrw_liststyle = 1
