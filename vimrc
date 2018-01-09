@@ -164,7 +164,7 @@ if has('gui_running')
     endif
     set guicursor+=a:blinkon0 " turn off blinking cursor
 else
-    set termguicolors
+    " set termguicolors
     if g:os == "Darwin\n"
         let g:gruvbox_contrast_dark = "medium"
         colorscheme gruvbox
