@@ -212,7 +212,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 " Pretty text formatting using conceal
 let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#codeblocks#embeds#langs = ['python', 'vim', 'make',
-            \  'bash=sh', 'html', 'css', 'scss', 'javascript', 'yaml', 'R']
+            \  'bash=sh', 'html', 'css', 'scss', 'javascript', 'yaml', 'r']
 " somehow textwidth was reset at 0 when pandoc was loaded
 " maybe because the formatting mode defaultes to soft
 let g:pandoc#formatting#textwidth = 80
