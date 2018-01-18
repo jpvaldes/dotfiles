@@ -17,14 +17,14 @@ set nostartofline
 
 """ Encoding
 if has('multi_byte')
-   " Encoding used by the terminal
-   if empty(&termencoding)
-      let &termencoding=&encoding
-   endif
    " encoding used in buffers, files, registers, etc
    set encoding=utf-8
    " encoding used for writing files
    setglobal fileencoding=utf-8
+   " Encoding used by the terminal
+   if empty(&termencoding)
+      let &termencoding=&encoding
+   endif
 endif
 
 """ Tabs
