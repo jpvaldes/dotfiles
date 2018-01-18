@@ -60,21 +60,14 @@ nnoremap <Leader>x "+
 " buffer switch
 nnoremap gb :ls<CR>:b<Space>
 
-""" Python 3
-" augroup python3
-"     au! BufEnter *.py setlocal omnifunc=python3complete#Complete
-" augroup END
-
-""" Own augroup customizing file types
-augroup jp
-    autocmd!
-
-    autocmd FileType markdown setlocal spell textwidth=80 list
-    autocmd FileType make,automake setlocal noexpandtab list
-    autocmd FileType gitcommit setlocal spell textwidth=76 colorcolumn=77
-augroup END
-
 """ Plugins
+" Autoload
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 if has("win32")
     call plug#begin('~/vimfiles/plugged')
 else
@@ -118,6 +111,21 @@ Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 
 call plug#end()
+
+""" Python 3
+" augroup python3
+"     au! BufEnter *.py setlocal omnifunc=python3complete#Complete
+" augroup END
+
+""" Own augroup customizing file types
+augroup jp
+    autocmd!
+
+    autocmd FileType markdown setlocal spell textwidth=80 list
+    autocmd FileType make,automake setlocal noexpandtab list
+    autocmd FileType gitcommit setlocal spell textwidth=76 colorcolumn=77
+augroup END
+
 
 " Helping code to detect system
 if !exists("g:os")
