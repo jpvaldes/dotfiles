@@ -203,14 +203,22 @@ set colorcolumn=+1  " Relative to the textwidth variable instead of absolute
 set nowrap
 
 """ Autocompletion - mucomplete
-set completeopt=menuone,noinsert,noselect
+set completeopt+=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
 inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
 inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
 inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+" mucomplete docs recommended settings
 set shortmess+=c " shut off completion messages
+set belloff+=ctrlg " no vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
-" integrate with ultisnips
-call add(g:mucomplete#chains['default'], 'ulti')
+" integrate with ultisnips (warning, last time making vim lag a lot)
+" call add(g:mucomplete#chains['default'], 'ulti')
+inoremap <silent> <plug>(MUcompleteFwdKey) <c-b>
+imap <c-b> <plug>(MUcompleteCycFwd)
+
+""" Snippets - ultisnips
 " ultisnips expand trigger
 let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<C-J>"
