@@ -79,7 +79,7 @@ Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
 
 " general purpose
-Plug 'sirver/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
@@ -223,6 +223,9 @@ imap <c-b> <plug>(MUcompleteCycFwd)
 let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<C-J>"
 let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+" bug #711
+" set runtimepath+=~/dotfiles/UltiSnips/
+let g:UltiSnipsSnippetDirectories = ['/home/valdesj/dotfiles/UltiSnips']
 
 """ Pandoc plugin
 " Pretty text formatting using conceal
