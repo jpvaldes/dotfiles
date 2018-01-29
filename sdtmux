@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Start a tmux session usung systemd-run
+# That way the session does not close when connection closes
+
+systemd-run --scope --user tmux
