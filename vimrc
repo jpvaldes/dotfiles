@@ -239,6 +239,13 @@ let g:pandoc#formatting#mode = "h"
 " change folding mode so that all folds are displayed and not only
 " the higher level headers
 let g:pandoc#folding#mode = "stacked"
+" from docs: enable pandoc functionality for markdown while using the markdown
+" filetype and syntax
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#pandoc_markdown = 0
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
 
 """ Vimgutter plugin
 " shorter update times (default 4s)
