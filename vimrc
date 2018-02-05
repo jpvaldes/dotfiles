@@ -14,6 +14,10 @@ set spelllang=en_us
 set nostartofline
 " Whether to treat underscore *_* as word (but not WORD) separator
 " set iskeyword-=_
+" Swap and backup files under .vim instead of cluttering the working dir
+set undodir=~/.vim/undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
 
 """ Encoding
 if has('multi_byte')
