@@ -200,6 +200,6 @@ export ASHS_ROOT=$HOME/Source/external/ashs
 # echo "Adding user's bin/ to path"
 export PATH=$PATH:$HOME/bin
 # echo
-export PATH=$PATH:/Users/valdesj/abin
+export PATH=$PATH:/Users/$USER/abin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
