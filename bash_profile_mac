@@ -268,10 +268,6 @@ function yank {
     grep "^\s*$@\s" | awk '{print $2}' | sed 's/-\([0-9]*\)-/:\1:/g' | awk -F: '{print $1 " +" $2}' | awk '{print $2 " " $1}' | xargs ${EDITOR:?EDITOR must be set.}
 }
 
-##
-# Your previous /Users/valdesj/.bash_profile file was backed up as /Users/valdesj/.bash_profile.macports-saved_2014-06-13_at_16:26:01
-##
-
 # MacPorts Installer addition on 2014-06-13_at_16:26:01: adding an appropriate PATH variable for use with MacPorts.
 # export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
