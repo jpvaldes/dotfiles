@@ -106,6 +106,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 
 " jedi-vim python plugin
+Plug 'cjrh/vim-conda'
 Plug 'davidhalter/jedi-vim'
 
 " eye candy
