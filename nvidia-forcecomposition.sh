@@ -4,8 +4,8 @@
 # tearing. It checks if nvidia-settings exists and it is run in the right
 # computer.
 THIS_COMPUTER=$(hostname)
-if [[ -f $(which nvidia-settings) && ${THIS_COMPUTER#-*} = "82393" ]]; then
-    echo +++ nvidia-settings and host found
+if [[ -f $(which nvidia-settings) && ${THIS_COMPUTER#*-} = "82393" ]]; then
+    echo +++ nvidia-settings and ${THIS_COMPUTER} found
     echo +++ Forcing composition on DFP-0 and DFP-2
     nvidia-settings --assign CurrentMetaMode="DFP-0: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, DFP-2: nvidia-auto-select +1920+0 {ForceCompositionPipeline=On}"
     echo +++ Done
