@@ -131,6 +131,8 @@ augroup jp
     autocmd FileType gitcommit setlocal spell textwidth=76 colorcolumn=77
 augroup END
 
+" hope this helps with jedi-vim getting stuck autocompleting
+autocmd FileType python call jedi#configure_call_signatures()
 
 " Helping code to detect system
 if !exists("g:os")
