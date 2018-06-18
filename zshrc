@@ -68,6 +68,7 @@ plugins=(
   extract
   zsh-syntax-highlighting
   tmux
+  command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -139,10 +140,12 @@ export LANG=de_DE.UTF-8
 export LC_ALL=de_DE.UTF-8
 export LC_MESSAGES=POSIX
 
-# singularity keeps a cache directory at $HOME/.singularity by default
-# Bad idea for network drives
-if [[ ${HOST##*-} == "82393" ]]; then
+if [[ ${HOST##*-} == "3013497" ]]; then
+    # singularity keeps a cache directory at $HOME/.singularity by default
+    # Bad idea for network drives
     export SINGULARITY_CACHEDIR=/opt/cache/singularity
+    # Define the binds as env var; avoids having to write in command line
+    export SINGULARITY_BINDPATH=/dzne,/mnt/work/$(id -un)
 fi
 
 # less setup to use highlight
