@@ -146,6 +146,8 @@ if [[ ${HOST##*-} == "3013497" ]]; then
     export SINGULARITY_CACHEDIR=/opt/cache/singularity
     # Define the binds as env var; avoids having to write in command line
     export SINGULARITY_BINDPATH=/dzne,/mnt/work/$(id -un)
+    # vagrant home (do not use $HOME/.vagrant.d)
+    export VAGRANT_HOME=$WORK/vagrant-home
 fi
 
 # less setup to use highlight
