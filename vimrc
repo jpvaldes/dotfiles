@@ -15,9 +15,20 @@ set nostartofline
 " Whether to treat underscore *_* as word (but not WORD) separator
 " set iskeyword-=_
 " Swap and backup files under .vim instead of cluttering the working dir
+" Step 1: check dir exists and create if needed
+if !isdirectory($HOME . "/.vim/backup")
+    call mkdir($HOME . "/.vim/backup", "p", 0700)
+endif
+if !isdirectory($HOME . "/.vim/undo")
+    call mkdir($HOME . "/.vim/undo", "p", 0700)
+endif
+if !isdirectory($HOME . "/.vim/swp")
+    call mkdir($HOME . "/.vim/swp", "p", 0700)
+endif
+" Step 2: set directories
 set undodir=~/.vim/undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
 
 """ Encoding
 if has('multi_byte')
