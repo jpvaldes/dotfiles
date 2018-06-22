@@ -213,9 +213,9 @@ set nowrap
 set completeopt+=menuone
 set completeopt+=noselect
 set completeopt+=noinsert
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+" inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+" inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+" inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
 " mucomplete docs recommended settings
 set shortmess+=c " shut off completion messages
 set belloff+=ctrlg " no vim beeps during completion
