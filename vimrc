@@ -115,6 +115,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 
+" task management
+Plug 'soywod/kronos.vim'
+
 call plug#end()
 
 """ Python 3
