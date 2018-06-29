@@ -95,11 +95,14 @@ Plug 'sheerun/vim-polyglot'
 
 " general purpose
 Plug 'SirVer/ultisnips'
-Plug 'lifepillar/vim-mucomplete'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
+
+" autocompletion
+" Plug 'lifepillar/vim-mucomplete'
+Plug 'maralla/completor.vim' " note: completor needs vim 8
 
 " async syntax checking (older alternative is syntastic)
 Plug 'w0rp/ale'
@@ -146,7 +149,7 @@ augroup jp
 augroup END
 
 " hope this helps with jedi-vim getting stuck autocompleting
-autocmd FileType python call jedi#configure_call_signatures()
+" autocmd FileType python call jedi#configure_call_signatures()
 
 " Helping code to detect system
 if !exists("g:os")
@@ -224,20 +227,26 @@ set colorcolumn=+1  " Relative to the textwidth variable instead of absolute
 set nowrap
 
 """ Autocompletion - mucomplete
-set completeopt+=menuone
-set completeopt+=noselect
-set completeopt+=noinsert
-" inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-" inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-" inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-" mucomplete docs recommended settings
-set shortmess+=c " shut off completion messages
-set belloff+=ctrlg " no vim beeps during completion
-let g:mucomplete#enable_auto_at_startup = 1
-" integrate with ultisnips (warning, last time making vim lag a lot)
-call add(g:mucomplete#chains['default'], 'ulti')
-inoremap <silent> <plug>(MUcompleteFwdKey) <c-b>
-imap <c-b> <plug>(MUcompleteCycFwd)
+" set completeopt+=menuone
+" set completeopt+=noselect
+" set completeopt+=noinsert
+" " inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+" " inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+" " inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+" " mucomplete docs recommended settings
+" set shortmess+=c " shut off completion messages
+" set belloff+=ctrlg " no vim beeps during completion
+" let g:mucomplete#enable_auto_at_startup = 1
+" " integrate with ultisnips (warning, last time making vim lag a lot)
+" call add(g:mucomplete#chains['default'], 'ulti')
+" inoremap <silent> <plug>(MUcompleteFwdKey) <c-b>
+" imap <c-b> <plug>(MUcompleteCycFwd)
+""" Autocompletion - completor
+let g:completor_python_binary='/opt/conda/bin/python'
+let g:completor_min_chars = 2
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 """ Snippets - ultisnips
 " ultisnips expand trigger
