@@ -26,9 +26,9 @@ if !isdirectory($HOME . "/.vim/swp")
     call mkdir($HOME . "/.vim/swp", "p", 0700)
 endif
 " Step 2: set directories
-set undodir=~/.vim/undo//
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swp//
+set undodir=~/.vim/undo/
+set backupdir=~/.vim/backup/
+set directory=~/.vim/swp/
 
 """ Encoding
 if has('multi_byte')
@@ -101,8 +101,6 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 
 " autocompletion
-" Plug 'lifepillar/vim-mucomplete'
-Plug 'maralla/completor.vim' " note: completor needs vim 8
 
 " async syntax checking (older alternative is syntastic)
 Plug 'w0rp/ale'
@@ -134,15 +132,10 @@ Plug 'soywod/kronos.vim'
 
 call plug#end()
 
-""" Python 3
-" augroup python3
-"     au! BufEnter *.py setlocal omnifunc=python3complete#Complete
-" augroup END
-
 """ Own augroup customizing file types
 augroup jp
     autocmd!
-
+    " autocmd FileType python setlocal omnifunc=python3complete#Complete
     autocmd FileType markdown setlocal spell textwidth=80 list
     autocmd FileType make,automake setlocal noexpandtab list
     autocmd FileType gitcommit setlocal spell textwidth=76 colorcolumn=77
@@ -225,28 +218,6 @@ let g:lightline = {
 set textwidth=80    " Use gq to reformat (or gqip, gqq)
 set colorcolumn=+1  " Relative to the textwidth variable instead of absolute
 set nowrap
-
-""" Autocompletion - mucomplete
-" set completeopt+=menuone
-" set completeopt+=noselect
-" set completeopt+=noinsert
-" " inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-" " inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-" " inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-" " mucomplete docs recommended settings
-" set shortmess+=c " shut off completion messages
-" set belloff+=ctrlg " no vim beeps during completion
-" let g:mucomplete#enable_auto_at_startup = 1
-" " integrate with ultisnips (warning, last time making vim lag a lot)
-" call add(g:mucomplete#chains['default'], 'ulti')
-" inoremap <silent> <plug>(MUcompleteFwdKey) <c-b>
-" imap <c-b> <plug>(MUcompleteCycFwd)
-""" Autocompletion - completor
-let g:completor_python_binary='/opt/conda/bin/python'
-let g:completor_min_chars = 2
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 """ Snippets - ultisnips
 " ultisnips expand trigger
