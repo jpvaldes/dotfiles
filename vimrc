@@ -64,16 +64,26 @@ set scrolloff=3
 let g:netrw_liststyle = 1
 let g:netrw_sizestyle = "H"
 let g:netrw_banner = 0
-" explore in vertical split
-nnoremap <Leader>e :Explore! <enter>
 
 """ Mappings
+" explore in vertical split
+nnoremap <Leader>e :Explore! <enter>
+" saving and closing buffers
 nnoremap <Leader>w :w <enter>
 nnoremap <Leader>q :bd <enter>
 " access the copy buffer
 nnoremap <Leader>x "+
 " buffer switch
 nnoremap gb :ls<CR>:b<Space>
+" vanilla vim pair matching; be sure to use with set no paste:
+" https://stackoverflow.com/questions/21316727/automatic-closing-brackets-for-vim 
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 """ Plugins
 " Autoload
@@ -117,9 +127,10 @@ Plug 'maedoc/stan.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 
-" jedi-vim python plugin
+" python plugin
 Plug 'cjrh/vim-conda'
 Plug 'davidhalter/jedi-vim'
+Plug 'tell-k/vim-autopep8'
 
 " eye candy
 Plug 'itchyny/lightline.vim'
