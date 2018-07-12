@@ -110,8 +110,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 
-" autocompletion
-
 " async syntax checking (older alternative is syntastic)
 Plug 'w0rp/ale'
 
@@ -128,9 +126,17 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 
 " python plugin
-Plug 'cjrh/vim-conda'
+" Plug 'cjrh/vim-conda'
 Plug 'davidhalter/jedi-vim'
-Plug 'tell-k/vim-autopep8'
+" Plug 'tell-k/vim-autopep8'
+
+" autocompletion
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    let g:deoplete#enable_at_startup = 1
+    let g:jedi#completions_enabled = 0
+endif
 
 " eye candy
 Plug 'itchyny/lightline.vim'
@@ -140,6 +146,10 @@ Plug 'flazz/vim-colorschemes'
 
 " task management
 Plug 'soywod/kronos.vim'
+
+" tmux completion
+" yes, this exists
+" Plug 'wellle/tmux-complete.vim'
 
 call plug#end()
 
