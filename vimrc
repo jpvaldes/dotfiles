@@ -183,7 +183,6 @@ augroup numbertoggle
 augroup END
 set cursorline
 set noshowmode " if lightline installed
-set t_Co=256 " Is this still necessary?
 set background=dark
 if has('gui_running')
     set guioptions-=T
