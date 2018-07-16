@@ -136,6 +136,7 @@ if has('nvim')
     Plug 'zchee/deoplete-jedi'
     let g:deoplete#enable_at_startup = 1
     let g:jedi#completions_enabled = 0
+    autocmd FileType python set omnifunc=python3complete#Complete
 endif
 
 " eye candy
@@ -156,7 +157,7 @@ call plug#end()
 """ Own augroup customizing file types
 augroup jp
     autocmd!
-    " autocmd FileType python setlocal omnifunc=python3complete#Complete
+    " autocmd FileType python set omnifunc=python3complete#Complete
     autocmd FileType markdown setlocal spell textwidth=80 list
     autocmd FileType make,automake setlocal noexpandtab list
     autocmd FileType gitcommit setlocal spell textwidth=76 colorcolumn=77
@@ -239,6 +240,10 @@ let g:lightline = {
 set textwidth=80    " Use gq to reformat (or gqip, gqq)
 set colorcolumn=+1  " Relative to the textwidth variable instead of absolute
 set nowrap
+
+""" Ale - linter
+" ignore mypy for the time being
+let g:ale_linters_ignore = {'python': ['mypy']}
 
 """ Snippets - ultisnips
 " ultisnips expand trigger
