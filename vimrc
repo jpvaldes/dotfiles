@@ -75,15 +75,6 @@ nnoremap <Leader>q :bd <enter>
 nnoremap <Leader>x "+
 " buffer switch
 nnoremap gb :ls<CR>:b<Space>
-" vanilla vim pair matching; be sure to use with set no paste:
-" https://stackoverflow.com/questions/21316727/automatic-closing-brackets-for-vim 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
 
 """ Plugins
 " Autoload
