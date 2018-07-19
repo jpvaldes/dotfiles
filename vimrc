@@ -142,6 +142,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 
 " task management
 Plug 'soywod/kronos.vim'
