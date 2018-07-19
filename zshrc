@@ -67,7 +67,6 @@ plugins=(
   autojump
   extract
   zsh-syntax-highlighting
-  tmux
   command-not-found
 )
 
@@ -101,6 +100,7 @@ fi
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias ssh='TERM=xterm-256color ssh'
 
 # echo "Adding ASHS (fastashs) to the path:"
 # export ASHS_ROOT=$HOME/Source/external/ashs
