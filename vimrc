@@ -214,6 +214,7 @@ else
         colorscheme gruvbox
     elseif g:os == "Linux\n"
         let g:gruvbox_contrast_dark = "hard"
+        let g:gruvbox_italic = 1
         colorscheme gruvbox
     endif
 endif
