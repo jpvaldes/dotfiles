@@ -118,6 +118,10 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'maedoc/stan.vim'
 
+" distraction free writing
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 " make tables
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
