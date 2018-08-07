@@ -180,12 +180,14 @@ endif
 
 """ Aesthetics
 " Numbers and relative numbers depending on mode
-set number relativenumber
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+" set number relativenumber
+" augroup NumberSwitch
+"     autocmd!
+"     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
+
+" theme settings
 set cursorline
 set noshowmode " if lightline installed
 set background=dark
