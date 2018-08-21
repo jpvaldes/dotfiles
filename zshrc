@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='/opt/bin/nvim'
 fi
 
 # Compilation flags
@@ -158,6 +158,14 @@ if [[ -n $(command -v highlight) ]]; then
     # alternative to cat using highligh
     alias hicat="highlight --out-format=xterm256 --line-numbers --quiet --force --style=molokai $1"
 fi
+
+# Poor man's um, personal notes
+function mdless() {
+    pandoc -s -f markdown -t man ${1} | groff -T utf8 -man | less
+}
+umedit() { mkdir -p ~/.notes; ${EDITOR} ~/.notes/${1}; }
+um() { mdless ~/.notes/${1} }
+umls() { ls ~/.notes }
 
 # github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
