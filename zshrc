@@ -175,7 +175,7 @@ fzv () {
         echo {} is a binary file ||
         (highlight -O xterm256 --line-numbers --style=molokai {} ||
          cat{})2> /dev/null |head -500'
-    nvim $(fzf --preview $prevops)
+    nvim $(fzf --preview "$prevops")
 }
 # some default options
 export FZF_DEFAULT_OPTS='--height 60% --reverse --preview-window up'
