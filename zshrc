@@ -168,4 +168,19 @@ um() { mdless ~/.notes/${1} }
 umls() { ls ~/.notes }
 
 # github.com/junegunn/fzf
+fzv () {
+    # fuzzy vim: use fzf to call vim/nvim
+    local prevops
+    prevops='[[ $(file --mime {}) =~ binary ]] &&
+        echo {} is a binary file ||
+        (highlight -O xterm256 --line-numbers --style=molokai {} ||
+         cat{})2> /dev/null |head -500'
+    nvim $(fzf --preview $prevops)
+}
+# some default options
+export FZF_DEFAULT_OPTS='--height 60% --reverse --preview-window up'
+# CTRL-R options: add preview
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind '?:toggle-preview'"
+# ALT-C options: show tree preview
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
