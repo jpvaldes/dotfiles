@@ -280,4 +280,4 @@ augroup END
 
 """ Vimgutter plugin
 " shorter update times (default 4s)
-set updatetime=1000
+set updatetime=100
