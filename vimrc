@@ -113,6 +113,9 @@ Plug 'w0rp/ale'
 " git plugin
 Plug 'tpope/vim-fugitive'
 
+" see contents of registers in insert mode
+Plug 'junegunn/vim-peekaboo'
+
 " extra lang syntax
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
