@@ -82,8 +82,8 @@ nnoremap <Leader>x "+
 " buffer switch
 nnoremap gb :ls<CR>:b<Space>
 " next/previous buffers
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprev<CR>
+nnoremap <Leader>b :bnext<CR>
+nnoremap <Leader>B :bprev<CR>
 
 """ Plugins
 " Autoload
