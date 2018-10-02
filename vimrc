@@ -116,6 +116,9 @@ Plug 'tpope/vim-fugitive'
 " see contents of registers in insert mode
 Plug 'junegunn/vim-peekaboo'
 
+" Display tags/classes in a window
+Plug 'majutsushi/tagbar'
+
 " extra lang syntax
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
