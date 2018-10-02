@@ -153,6 +153,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
+Plug 'thaerkh/vim-indentguides' " display indentation guides
 
 " task management
 Plug 'soywod/kronos.vim'
