@@ -62,7 +62,6 @@ HIST_STAMPS="dd.mm.yyy"
 plugins=(
   docker
   git
-  ubuntu
   python
   autojump
   extract
