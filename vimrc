@@ -157,7 +157,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
-Plug 'thaerkh/vim-indentguides' " display indentation guides
+" Plug 'thaerkh/vim-indentguides' " display indentation guides
 " Plug 'maximbaz/lightline-ale' " display ale status in status line
 
 " task management
