@@ -281,7 +281,8 @@ let g:pandoc#formatting#textwidth = 80
 let g:pandoc#formatting#mode = "h"
 " change folding mode so that all folds are displayed and not only
 " the higher level headers
-let g:pandoc#folding#mode = "none"
+let g:pandoc#modules#disabled = ['folding']
+let g:pandoc#folding#mode = 'none'
 " from docs: enable pandoc functionality for markdown while using the markdown
 " filetype and syntax
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
