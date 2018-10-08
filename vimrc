@@ -123,8 +123,8 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'majutsushi/tagbar'
 
 " extra lang syntax
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'maedoc/stan.vim'
 
 " distraction free writing
