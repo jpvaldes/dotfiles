@@ -147,6 +147,7 @@ if has('nvim')
     let g:deoplete#enable_at_startup = 1
     let g:jedi#completions_enabled = 0
     autocmd FileType python set omnifunc=python3complete#Complete
+    " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 endif
 
 " eye candy
@@ -280,7 +281,7 @@ let g:pandoc#formatting#textwidth = 80
 let g:pandoc#formatting#mode = "h"
 " change folding mode so that all folds are displayed and not only
 " the higher level headers
-let g:pandoc#folding#mode = "stacked"
+let g:pandoc#folding#mode = "none"
 " from docs: enable pandoc functionality for markdown while using the markdown
 " filetype and syntax
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
