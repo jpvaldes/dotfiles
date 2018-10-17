@@ -161,6 +161,11 @@ let g:netrw_liststyle = 1
 let g:netrw_sizestyle = "H"
 let g:netrw_banner = 0
 
+""" unnamed register
+if has('unnamedplus')
+    set clipboard=unnamed,unnamedplus
+endif
+
 """ Mappings
 " explore in vertical split
 nnoremap <Leader>e :Explore! <enter>
