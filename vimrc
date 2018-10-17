@@ -190,6 +190,10 @@ nnoremap <Leader>b :bnext<CR>
 nnoremap <Leader>B :bprev<CR>
 " delete trailing whitespace
 nnoremap <Leader>kw :%s/\s\+$//<CR>
+" nerdtree shortcut
+noremap <silent> <F3> :NERDTreeToggle<CR>
+" tagbar toggle
+nmap <silent> <F4> :TagbarToggle<CR>
 
 " ale plugin
 let g:ale_completion_enabled = 0
