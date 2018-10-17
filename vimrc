@@ -202,6 +202,7 @@ let g:ale_sign_warning = '➤'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 2
 let g:jedi#completions_enabled = 0
+let g:jedi#show_call_signatures = "<leader>0"
 autocmd FileType python set omnifunc=python3complete#Complete
 
 """ Own augroup customizing file types
