@@ -188,6 +188,8 @@ nnoremap gb :ls<CR>:b<Space>
 " next/previous buffers
 nnoremap <Leader>b :bnext<CR>
 nnoremap <Leader>B :bprev<CR>
+" delete trailing whitespace
+nnoremap <Leader>kw :%s/\s\+$//<CR>
 
 " ale plugin
 let g:ale_completion_enabled = 0
