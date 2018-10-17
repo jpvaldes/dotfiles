@@ -172,7 +172,9 @@ if exists('&inccommand')
     set inccommand=split
 endif
 
-""" 
+""" do not force equal splits
+set noequalalways
+
 """ Mappings
 " explore in vertical split
 nnoremap <Leader>e :Explore! <enter>
