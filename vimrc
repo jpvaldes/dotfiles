@@ -144,10 +144,13 @@ Plug 'davidhalter/jedi-vim'
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
-    let g:deoplete#enable_at_startup = 1
-    let g:jedi#completions_enabled = 0
-    autocmd FileType python set omnifunc=python3complete#Complete
-    " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+    Plug 'ujihisa/neco-look'
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'ujihisa/neco-look'
 endif
 
 " eye candy
@@ -168,6 +171,20 @@ Plug 'soywod/kronos.vim'
 " Plug 'wellle/tmux-complete.vim'
 
 call plug#end()
+
+let g:ale_completion_enabled = 0
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '➤'
+
+" deoplete options after plug#end
+" call deoplete#custom#option('sources', {
+"             \ '_': ['buffer'],
+"             \ 'vim': ['vim']
+"             \ })
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 2
+let g:jedi#completions_enabled = 0
+autocmd FileType python set omnifunc=python3complete#Complete
 
 """ Own augroup customizing file types
 augroup jp
