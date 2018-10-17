@@ -1,89 +1,4 @@
-let mapleader = ','
-
-""" Basics
 set nocompatible
-set backspace=indent,eol,start
-"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-if (has("termguicolors"))
-    set termguicolors
-endif
-syntax on
-filetype plugin indent on
-set ruler
-set history=1000
-set hidden
-" set spell
-set spelllang=en_us
-" stop certain movements from always going to the first character of a line
-set nostartofline
-" Whether to treat underscore *_* as word (but not WORD) separator
-" set iskeyword-=_
-" Swap and backup files under .vim instead of cluttering the working dir
-" Step 1: check dir exists and create if needed
-if !isdirectory($HOME . "/.vim/backup")
-    call mkdir($HOME . "/.vim/backup", "p", 0700)
-endif
-if !isdirectory($HOME . "/.vim/undo")
-    call mkdir($HOME . "/.vim/undo", "p", 0700)
-endif
-if !isdirectory($HOME . "/.vim/swp")
-    call mkdir($HOME . "/.vim/swp", "p", 0700)
-endif
-" Step 2: set directories
-set undodir=~/.vim/undo/
-set backupdir=~/.vim/backup/
-set directory=~/.vim/swp/
-
-""" Encoding
-if has('multi_byte')
-   " encoding used in buffers, files, registers, etc
-   set encoding=utf-8
-   " encoding used for writing files
-   setglobal fileencoding=utf-8
-   " Encoding used by the terminal
-   if empty(&termencoding)
-      let &termencoding=&encoding
-   endif
-endif
-
-""" Tabs
-set autoindent
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-
-""" Search
-set hlsearch
-set incsearch
-set showmatch
-set ignorecase
-set smartcase " don't ignore capital letters
-" nnoremap <leader><space> :nohls <enter> " clear highlighted searches
-
-""" keep some lines above or below when scrolling
-set scrolloff=3
-
-""" NetRW
-let g:netrw_liststyle = 1
-let g:netrw_sizestyle = "H"
-let g:netrw_banner = 0
-
-""" Mappings
-" explore in vertical split
-nnoremap <Leader>e :Explore! <enter>
-" saving and closing buffers
-nnoremap <Leader>w :w <enter>
-nnoremap <Leader>q :bd <enter>
-" access the copy buffer
-nnoremap <Leader>x "+
-" buffer switch
-nnoremap gb :ls<CR>:b<Space>
-" next/previous buffers
-nnoremap <Leader>b :bnext<CR>
-nnoremap <Leader>B :bprev<CR>
 
 """ Plugins
 " Autoload
@@ -172,6 +87,95 @@ Plug 'soywod/kronos.vim'
 
 call plug#end()
 
+""" Basics
+let mapleader = ','
+set backspace=indent,eol,start
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+if (has("termguicolors"))
+    set termguicolors
+endif
+syntax on
+filetype plugin indent on
+set ruler
+set history=1000
+set hidden
+" set spell
+set spelllang=en_us
+" stop certain movements from always going to the first character of a line
+set nostartofline
+" Whether to treat underscore *_* as word (but not WORD) separator
+" set iskeyword-=_
+" Swap and backup files under .vim instead of cluttering the working dir
+" Step 1: check dir exists and create if needed
+if !isdirectory($HOME . "/.vim/backup")
+    call mkdir($HOME . "/.vim/backup", "p", 0700)
+endif
+if !isdirectory($HOME . "/.vim/undo")
+    call mkdir($HOME . "/.vim/undo", "p", 0700)
+endif
+if !isdirectory($HOME . "/.vim/swp")
+    call mkdir($HOME . "/.vim/swp", "p", 0700)
+endif
+" Step 2: set directories
+set undodir=~/.vim/undo/
+set backupdir=~/.vim/backup/
+set directory=~/.vim/swp/
+
+""" Encoding
+if has('multi_byte')
+   " encoding used in buffers, files, registers, etc
+   set encoding=utf-8
+   " encoding used for writing files
+   setglobal fileencoding=utf-8
+   " Encoding used by the terminal
+   if empty(&termencoding)
+      let &termencoding=&encoding
+   endif
+endif
+
+""" Tabs
+set autoindent
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+
+""" Search
+set hlsearch
+set incsearch
+set showmatch
+set ignorecase
+set smartcase " don't ignore capital letters
+" nnoremap <leader><space> :nohls <enter> " clear highlighted searches
+
+""" keep some lines above or below when scrolling
+set scrolloff=3
+
+" well, just to resize
+set mouse=a
+
+""" NetRW
+let g:netrw_liststyle = 1
+let g:netrw_sizestyle = "H"
+let g:netrw_banner = 0
+
+""" Mappings
+" explore in vertical split
+nnoremap <Leader>e :Explore! <enter>
+" saving and closing buffers
+nnoremap <Leader>w :w <enter>
+nnoremap <Leader>q :bd <enter>
+" access the copy buffer
+nnoremap <Leader>x "+
+" buffer switch
+nnoremap gb :ls<CR>:b<Space>
+" next/previous buffers
+nnoremap <Leader>b :bnext<CR>
+nnoremap <Leader>B :bprev<CR>
+
+" ale plugin
 let g:ale_completion_enabled = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '➤'
