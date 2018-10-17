@@ -166,6 +166,13 @@ if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 endif
 
+""" live substitution
+" options 1) "", 2) nosplit, 3) split
+if exists('&inccommand')
+    set inccommand=split
+endif
+
+""" 
 """ Mappings
 " explore in vertical split
 nnoremap <Leader>e :Explore! <enter>
