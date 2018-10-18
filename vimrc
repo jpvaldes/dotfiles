@@ -156,6 +156,10 @@ set scrolloff=3
 " well, just to resize
 set mouse=a
 
+""" splits below and right, instead of top and left
+set splitbelow
+set splitright
+
 """ NetRW
 let g:netrw_liststyle = 1
 let g:netrw_sizestyle = "H"
