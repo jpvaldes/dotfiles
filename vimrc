@@ -300,6 +300,7 @@ set colorcolumn=+1  " Relative to the textwidth variable instead of absolute
 set nowrap
 
 """ Goyo - distraction free writing
+let g:goyo_width = 84
 function! s:goyo_enter()
     if exists('$TMUX')
         silent !tmux set status off
