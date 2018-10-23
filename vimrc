@@ -75,6 +75,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
+Plug 'romainl/flattened'
+Plug 'lifepillar/vim-solarized8'
 " Plug 'thaerkh/vim-indentguides' " display indentation guides
 " Plug 'maximbaz/lightline-ale' " display ale status in status line
 
@@ -277,7 +279,7 @@ else
         let g:gruvbox_contrast_dark = "medium"
         colorscheme gruvbox
     elseif g:os == "Linux\n"
-        let g:gruvbox_contrast_dark = "hard"
+        let g:gruvbox_contrast_dark = "medium"
         let g:gruvbox_italic = 1
         colorscheme gruvbox
     endif
@@ -312,7 +314,7 @@ function! s:goyo_enter()
     endif
     set noshowmode
     set noshowcmd
-    set scrolloff=999
+    " set scrolloff=999
 endfunction
 
 function! s:goyo_leave()
@@ -322,7 +324,7 @@ function! s:goyo_leave()
     endif
     set showmode
     set showcmd
-    set scrolloff=5
+    " set scrolloff=5
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
