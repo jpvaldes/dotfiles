@@ -1,19 +1,13 @@
 snippet lbsec "Date section heading"
-# `date +%-d.%-m.%Y`
-$0
-endsnippet
+    # `strftime("%-d.%-m.%Y")`${0}
 
 snippet lbmeet "Meetings sub-section"
-## Meetings
+    ## Meetings
 
-- $1
-$0
-endsnippet
+    - ${0}
 
 snippet mdlink "Reference style link"
-[${1:description}][${2:id}]$0
-endsnippet
+    [${1:description}][${2:id}]${0}
 
 snippet mdlinkid "Id for reference style link"
-[${1:id}]: ${2:url} ${3:title}$0
-endsnippet
+    [${1:id}]: ${2:url} ${3:title}${0}
