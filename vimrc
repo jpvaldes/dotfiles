@@ -19,8 +19,6 @@ Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
 
 " general purpose
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
@@ -58,15 +56,19 @@ Plug 'davidhalter/jedi-vim'
 " autocompletion
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-    Plug 'ujihisa/neco-look'
 else
     Plug 'Shougo/deoplete.nvim'
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
-    Plug 'zchee/deoplete-jedi'
-    Plug 'ujihisa/neco-look'
 endif
+Plug 'zchee/deoplete-jedi'
+Plug 'ujihisa/neco-look'  " look dictionary completion
+Plug 'jpvaldes/deoplete-biblatex'
+let g:deoplete#enable_at_startup = 1
+
+" snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " eye candy
 Plug 'itchyny/lightline.vim'
@@ -211,8 +213,38 @@ let g:ale_sign_warning = '➤'
 "             \ '_': ['buffer'],
 "             \ 'vim': ['vim']
 "             \ })
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 2
+
+""" neosnippet
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-j>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+" snippets directory
+let g:neosnippet#snippets_directory = "~/dotfiles/snips"
+
+" deoplete-biblatex
+let g:deoplete#sources#biblatex#bibfile = "~/dzne/reports/thetext/bibliography.bib"
+let g:deoplete#sources#biblatex#reloadbibfileonchange = 1
+call deoplete#custom#source('biblatex', 'filetypes', ['rst', 'pandoc', 'markdown'])
+
+""" jedi
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = "<leader>0"
 autocmd FileType python set omnifunc=python3complete#Complete
@@ -333,15 +365,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 """ Ale - linter
 " ignore mypy for the time being
 let g:ale_linters_ignore = {'python': ['mypy']}
-
-""" Snippets - ultisnips
-" ultisnips expand trigger
-let g:UltiSnipsExpandTrigger="<C-J>"
-let g:UltiSnipsJumpForwardTrigger="<C-J>"
-let g:UltiSnipsJumpBackwardTrigger="<C-K>"
-" bug #711
-" set runtimepath+=~/dotfiles/UltiSnips/
-let g:UltiSnipsSnippetDirectories = ['/home/valdesj/dotfiles/UltiSnips']
 
 """ Pandoc plugin
 " Pretty text formatting using conceal
