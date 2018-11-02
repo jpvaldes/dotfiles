@@ -240,7 +240,7 @@ endif
 let g:neosnippet#snippets_directory = "~/dotfiles/snips"
 
 " deoplete-biblatex
-let g:deoplete#sources#biblatex#bibfile = "~/dzne/reports/thetext/bibliography.bib"
+let g:deoplete#sources#biblatex#bibfile = "~/bibliography.bib"
 let g:deoplete#sources#biblatex#reloadbibfileonchange = 1
 call deoplete#custom#source('biblatex', 'filetypes', ['rst', 'pandoc', 'markdown'])
 
