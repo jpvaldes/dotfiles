@@ -341,7 +341,6 @@ set nowrap
 let g:goyo_width = 84
 function! s:goyo_enter()
     if exists('$TMUX')
-        silent !tmux set status off
         silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
     endif
     set noshowmode
@@ -351,7 +350,6 @@ endfunction
 
 function! s:goyo_leave()
     if exists('$TMUX')
-        silent !tmux set status on
         silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
     endif
     set showmode
