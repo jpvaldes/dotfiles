@@ -85,6 +85,10 @@ Plug 'lifepillar/vim-solarized8'
 " task management
 Plug 'soywod/kronos.vim'
 
+" FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 " tmux completion
 " yes, this exists
 " Plug 'wellle/tmux-complete.vim'
@@ -99,6 +103,12 @@ set backspace=indent,eol,start
 " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
 if (has("termguicolors"))
     set termguicolors
+    if !(has("nvim"))
+        " vim only set this under xterm TERM, not under tmux TERM
+        " Setting manually. See :h xterm-true-color
+        set t_8f=[38;2;%lu;%lu;%lum
+        set t_8b=[48;2;%lu;%lu;%lum
+    endif
 endif
 syntax on
 filetype plugin indent on
