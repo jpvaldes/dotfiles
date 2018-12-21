@@ -176,6 +176,12 @@ fzv () {
          cat{})2> /dev/null |head -500'
     nvim $(fzf --preview "$prevops")
 }
+# Use fd instead of find if available
+if [[ -n $(command -v fd) ]]; then
+    export FZF_DEFAULT_COMMAND='fd --type f'
+    export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
+    export FZF_ALT_C_COMMAND='fd --type d --follow'
+fi
 # some default options
 export FZF_DEFAULT_OPTS='--height 60% --reverse --preview-window up'
 # CTRL-R options: add preview
