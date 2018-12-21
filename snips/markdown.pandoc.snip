@@ -1,0 +1,27 @@
+snippet     comment
+abbr        com
+options     head
+    <!-- ${1} -->${0}
+
+snippet     piecewiselatex
+abbr        piecew
+options     head
+    $$
+    ${1} = \left\{
+        \begin{array}{ll}
+            ${2}, & ${3} \\
+            ${0}
+        \end{array}
+        \right.
+    $$
+
+snippet     argmaxop
+abbr        amop
+options     head
+    \underset{ ${1} }{\operatorname{argmax}}${0}
+
+snippet     argminop
+abbr        amip
+options     head
+    \underset{ ${1} }{\operatorname{arg min}}${0}
+
