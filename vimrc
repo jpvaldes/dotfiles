@@ -79,6 +79,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
+Plug 'TaDaa/vimade' " fade inactive buffers
 " Plug 'thaerkh/vim-indentguides' " display indentation guides
 " Plug 'maximbaz/lightline-ale' " display ale status in status line
 
