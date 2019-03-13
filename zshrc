@@ -82,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='/opt/bin/nvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -113,7 +113,8 @@ export PATH=$PATH:/opt/bin
 if [[ -d /opt/conda ]]; then
     # should that be source /opt/conda/bin/activate
     # instead of just export the conda bin path?
-    export PATH="/opt/conda/bin:$PATH"
+    . "/opt/conda/etc/profile.d/conda.sh"
+    conda activate base
 else
     export PATH="$HOME/conda/bin:$PATH"
 fi
