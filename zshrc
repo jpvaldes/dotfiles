@@ -128,18 +128,6 @@ export WORK=/mnt/work/$(id -un)
 # export LC_ALL=de_DE.UTF-8
 # export LC_MESSAGES=POSIX
 
-# FSL Setup
-[ -f "/etc/fsl/fsl.sh" ] && source /etc/fsl/fsl.sh
-
-# echo "Adding ANTS to path:"
-export ANTSPATH=$HOME/Source/external/antsbin/bin
-# echo "ANTSPATH: $ANTSPATH"
-export PATH=$PATH:$ANTSPATH
-# echo
-
-export FREESURFER_HOME=/opt/freesurfer
-[ -f ${FREESURFER_HOME}/FreeSurferEnv.sh ] && source ${FREESURFER_HOME}/FreeSurferEnv.sh 
-
 if [[ ${HOST##*-} == "3013497" ]]; then
     # singularity keeps a cache directory at $HOME/.singularity by default
     # Bad idea for network drives
