@@ -124,9 +124,9 @@ export WORK=/mnt/work/$(id -un)
 # Some locale settings, perhaps they should go in
 # ~/.pam_environment
 
-export LANG=de_DE.UTF-8
-export LC_ALL=de_DE.UTF-8
-export LC_MESSAGES=POSIX
+# export LANG=de_DE.UTF-8
+# export LC_ALL=de_DE.UTF-8
+# export LC_MESSAGES=POSIX
 
 # FSL Setup
 [ -f "/etc/fsl/fsl.sh" ] && source /etc/fsl/fsl.sh
