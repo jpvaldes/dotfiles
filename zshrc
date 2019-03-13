@@ -128,16 +128,6 @@ export WORK=/mnt/work/$(id -un)
 # export LC_ALL=de_DE.UTF-8
 # export LC_MESSAGES=POSIX
 
-if [[ ${HOST##*-} == "3013497" ]]; then
-    # singularity keeps a cache directory at $HOME/.singularity by default
-    # Bad idea for network drives
-    export SINGULARITY_CACHEDIR=/opt/cache/singularity
-    # Define the binds as env var; avoids having to write in command line
-    export SINGULARITY_BINDPATH=/dzne,/mnt/work/$(id -un)
-    # vagrant home (do not use $HOME/.vagrant.d)
-    export VAGRANT_HOME=$WORK/vagrant-home
-fi
-
 # less setup to use highlight
 if [[ -n $(command -v highlight) ]]; then
     export LESSOPEN="| $(which highlight) --out-format=xterm256 --line-numbers --quiet --force --style=molokai %s"
