@@ -13,4 +13,4 @@ if "test ! -d ~/.tmux/plugins/tpm" \
 
 # initialize the plugin manager
 # this line always at the bottom of tmux.conf
-run '~/.tmux/plugins/tpm/tpm'
+run -b '~/.tmux/plugins/tpm/tpm'
