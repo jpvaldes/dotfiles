@@ -116,7 +116,9 @@ if [[ -d /opt/conda ]]; then
     . "/opt/conda/etc/profile.d/conda.sh"
     conda activate base
 else
-    export PATH="$HOME/conda/bin:$PATH"
+    # export PATH="$HOME/conda/bin:$PATH"
+    . "$HOME/miniconda/etc/profile.d/conda.sh"
+    conda activate base
 fi
 
 export WORK=/mnt/work/$(id -un)
