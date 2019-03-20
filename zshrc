@@ -107,7 +107,7 @@ alias ssh='TERM=xterm-256color ssh'
 # echo "Adding user's bin/ to path"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/abin
-export PATH=$PATH:/opt/bin
+export PATH=$PATH:/opt/bin:/opt/app
 
 CONDA_FOUND=0
 # Conda
