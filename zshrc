@@ -109,15 +109,19 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/abin
 export PATH=$PATH:/opt/bin
 
+CONDA_FOUND=0
 # Conda
 if [[ -d /opt/conda ]]; then
     # should that be source /opt/conda/bin/activate
     # instead of just export the conda bin path?
     . "/opt/conda/etc/profile.d/conda.sh"
-    conda activate base
-else
+    CONDA_FOUND=1
+elif [[ -d $HOME/miniconda ]]; then
     # export PATH="$HOME/conda/bin:$PATH"
     . "$HOME/miniconda/etc/profile.d/conda.sh"
+    CONDA_FOUND=1
+fi
+if [[ ${CONDA_FOUND} == 1 ]]; then
     conda activate base
 fi
 
@@ -170,3 +174,9 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind 
 # ALT-C options: show tree preview
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jose/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jose/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/jose/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jose/google-cloud-sdk/completion.zsh.inc'; fi
