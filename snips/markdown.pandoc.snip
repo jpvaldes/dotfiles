@@ -25,3 +25,23 @@ abbr        amip
 options     head
     \underset{ ${1} }{\operatorname{arg min}}${0}
 
+snippet     title
+abbr        title
+options     head
+    # ${1}${0}
+
+snippet     stitle
+abbr        subtitle
+options     head
+    ## ${1}${0}
+
+snippet     sstitle
+abbr        subsubtitle
+options     head
+    ### ${1}{0}
+
+snippet     dtitle
+abbr        date title
+options     word
+    # `strftime("%-d.%-m.%Y")`
+    ${0}
