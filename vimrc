@@ -63,7 +63,7 @@ else
 endif
 Plug 'zchee/deoplete-jedi'
 Plug 'ujihisa/neco-look'  " look dictionary completion
-Plug 'jpvaldes/deoplete-biblatex'
+" Plug 'jpvaldes/deoplete-biblatex'
 let g:deoplete#enable_at_startup = 1
 
 " snippets
