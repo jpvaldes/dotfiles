@@ -411,5 +411,9 @@ let g:tagbar_type_markdown = {
     \ }
 
 """ Vimgutter plugin
+" set background color to theme's background
+let g:gitgutter_override_sign_column_highlight = 1
+highlight SignColumn guibg=bg
+highlight SignColumn ctermbg=bg
 " shorter update times (default 4s)
 set updatetime=100
