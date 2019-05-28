@@ -218,6 +218,12 @@ noremap <silent> <F9> :FZF<CR>
 " TAB to cycle through completion options
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" Poor man's autoclosing brackets
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
 
 " ale plugin
 let g:ale_completion_enabled = 0
