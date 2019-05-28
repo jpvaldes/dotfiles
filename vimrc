@@ -213,6 +213,8 @@ nnoremap <Leader>kw :%s/\s\+$//<CR>
 noremap <silent> <F3> :NERDTreeToggle<CR>
 " tagbar toggle
 nmap <silent> <F4> :TagbarToggle<CR>
+" FZF!
+noremap <silent> <F9> :FZF<CR>
 " TAB to cycle through completion options
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
