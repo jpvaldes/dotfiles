@@ -416,9 +416,10 @@ let g:tagbar_type_markdown = {
     \ ]
     \ }
 
-""" Vimgutter plugin
+""" Vim gitgutter plugin
 " set background color to theme's background
-let g:gitgutter_override_sign_column_highlight = 1
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
 highlight SignColumn guibg=bg
 highlight SignColumn ctermbg=bg
 " shorter update times (default 4s)
