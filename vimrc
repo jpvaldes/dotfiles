@@ -79,7 +79,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
-Plug 'TaDaa/vimade' " fade inactive buffers
+Plug 'TaDaa/vimade' " fade inactive buffers, default level 0.5
 " Plug 'thaerkh/vim-indentguides' " display indentation guides
 " Plug 'maximbaz/lightline-ale' " display ale status in status line
 
@@ -98,6 +98,8 @@ call plug#end()
 
 """ Basics
 let mapleader = ','
+" shorter update times (default 4s)
+set updatetime=200
 set backspace=indent,eol,start
 "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
 "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
@@ -422,5 +424,3 @@ let g:gitgutter_override_sign_column_highlight = 0
 highlight clear SignColumn
 highlight SignColumn guibg=bg
 highlight SignColumn ctermbg=bg
-" shorter update times (default 4s)
-set updatetime=100
