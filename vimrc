@@ -49,11 +49,6 @@ Plug 'junegunn/limelight.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 
-" python plugin
-" " Plug 'cjrh/vim-conda'
-" Plug 'davidhalter/jedi-vim'
-" " Plug 'tell-k/vim-autopep8'
-
 " snippets
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -70,6 +65,11 @@ Plug 'zchee/deoplete-jedi'
 Plug 'ujihisa/neco-look'  " look dictionary completion
 " " Plug 'jpvaldes/deoplete-biblatex'
 let g:deoplete#enable_at_startup = 1
+"
+" python plugin
+" " Plug 'cjrh/vim-conda'
+Plug 'davidhalter/jedi-vim'
+" " Plug 'tell-k/vim-autopep8'
 
 " eye candy
 Plug 'itchyny/lightline.vim'
@@ -215,6 +215,11 @@ let g:ale_sign_warning = '➤'
 "             \ 'vim': ['vim']
 "             \ })
 let g:deoplete#auto_completion_start_length = 2
+
+" disable autocompletion in jedi-vim, use deoplete
+let g:jedi#completions_enabled = 0
+" open go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "bottom"
 
 """ neosnippet
 " Plugin key-mappings.
