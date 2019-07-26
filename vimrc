@@ -123,6 +123,8 @@ endif
 set undodir=~/.vim/undo/
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swp/
+" termguicolors
+set termguicolors
 
 """ Encoding
 if has('multi_byte')
@@ -253,8 +255,9 @@ let g:neosnippet#snippets_directory = "~/dotfiles/snips"
 """" Aesthetics
 "" theme settings
 set cursorline
+let g:gruvbox_italic=1
 colorscheme gruvbox
-let g:gruvbox_contrast_dark = "medium"
+let g:gruvbox_contrast_dark="medium"
 set noshowmode " if lightline installed
 "set background=dark
 if has('gui_running')
