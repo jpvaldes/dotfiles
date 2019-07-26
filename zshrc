@@ -100,7 +100,7 @@ fi
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias ssh='TERM=xterm-256color ssh'
+alias ssh256='TERM=xterm-256color ssh'
 
 # echo "Adding ASHS (fastashs) to the path:"
 # export ASHS_ROOT=$HOME/Source/external/ashs
@@ -125,6 +125,8 @@ fi
 if [[ ${CONDA_FOUND} == 1 ]]; then
     conda activate base
 fi
+# alias for common environments
+alias sdk="conda activate sdk"
 
 export WORK=/mnt/work/$(id -un)
 
