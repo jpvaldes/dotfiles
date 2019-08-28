@@ -71,6 +71,9 @@ let g:deoplete#enable_at_startup = 1
 Plug 'davidhalter/jedi-vim'
 " " Plug 'tell-k/vim-autopep8'
 
+" documentation
+Plug 'kkoomen/vim-doge'
+
 " eye candy
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
@@ -222,6 +225,12 @@ let g:deoplete#auto_completion_start_length = 2
 let g:jedi#completions_enabled = 0
 " open go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "bottom"
+
+""" doge plugin
+let g:doge_mapping = '<Leader>/'
+let g:doge_doc_standard_python = 'numpy'
+let g:doge_mapping_comment_jump_forward = '<C-k>'
+let g:doge_mapping_comment_jump_backward = '<C-l>'
 
 """ neosnippet
 " Plugin key-mappings.
