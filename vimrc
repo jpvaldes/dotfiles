@@ -24,7 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 
 " async syntax checking (older alternative is syntastic)
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " git plugins
 Plug 'tpope/vim-fugitive'
