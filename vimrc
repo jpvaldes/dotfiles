@@ -213,6 +213,8 @@ inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 let g:ale_completion_enabled = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '➤'
+let g:ale_linters = {'python': ['flake8', 'mypy']}
+let g:ale_fixers = {'python': ['isort', 'yapf']}
 
 " deoplete options after plug#end
 " call deoplete#custom#option('sources', {
