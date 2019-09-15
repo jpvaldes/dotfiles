@@ -231,8 +231,8 @@ let g:jedi#use_splits_not_buffers = "bottom"
 """ doge plugin
 let g:doge_mapping = '<Leader>/'
 let g:doge_doc_standard_python = 'numpy'
-let g:doge_mapping_comment_jump_forward = '<C-;>'
-let g:doge_mapping_comment_jump_backward = "<C-'>"
+let g:doge_mapping_comment_jump_forward = '<M-.>'
+let g:doge_mapping_comment_jump_backward = "<M-,>"
 
 """ neosnippet
 " Plugin key-mappings.
