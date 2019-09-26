@@ -34,6 +34,18 @@ Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 
+" deoplete
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
+" Ale
+Plug ('dense-analysis/ale')
+
+" FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 """ Basics
@@ -133,6 +145,8 @@ nnoremap <Leader>kw :%s/\s\+$//<CR>
 " TAB to cycle through completion options
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+let g:deoplete#enable_at_startup = 1
 
 " colorscheme
 colorscheme monokain
