@@ -149,4 +149,7 @@ inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 let g:deoplete#enable_at_startup = 1
 
 " colorscheme
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ }
 colorscheme monokain
