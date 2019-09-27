@@ -145,6 +145,10 @@ nnoremap <Leader>kw :%s/\s\+$//<CR>
 " TAB to cycle through completion options
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" call FZF with F9
+noremap <silent><F9> :FZF<CR>
+" clear the search highlights
+nnoremap <C-l> :nohlsearch<CR>
 
 let g:deoplete#enable_at_startup = 1
 
