@@ -39,6 +39,10 @@ if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
+" snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+
 " Ale
 Plug ('dense-analysis/ale')
 
@@ -149,8 +153,15 @@ inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 noremap <silent><F9> :FZF<CR>
 " clear the search highlights
 nnoremap <C-l> :nohlsearch<CR>
+" Neosnippet key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-j>     <Plug>(neosnippet_expand_target)
 
 let g:deoplete#enable_at_startup = 1
+
+let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " colorscheme
 let g:lightline = {
