@@ -144,9 +144,10 @@ nnoremap <Leader>q :bd <enter>
 nnoremap <Leader>x "+
 " buffer switch
 nnoremap gb :ls<CR>:b<Space>
-" next/previous buffers
-nnoremap <Leader>b :bnext<CR>
-nnoremap <Leader>B :bprev<CR>
+" Buffers
+nnoremap <Leader>b :Buffers<CR>
+" Files
+nnoremap <Leader>f :Files<CR>
 " delete trailing whitespace
 nnoremap <Leader>kw :%s/\s\+$//<CR>
 " TAB to cycle through completion options
@@ -161,13 +162,22 @@ nnoremap <C-l> :nohlsearch<CR>
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
 smap <C-j>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-j>     <Plug>(neosnippet_expand_target)
+" ALE
+nmap <silent> <Leader>n <Plug>(ale_next_wrap)
+nmap <silent> <Leader>N <Plug>(ale_previous_wrap)
 
 let g:deoplete#enable_at_startup = 1
 
 let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " colorscheme
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_sign_column = 'bg0'
+let g:gruvbox_color_column = 'bg0'
+colorscheme gruvbox
+
 let g:lightline = {
-  \ 'colorscheme': 'one',
+  \ 'colorscheme': 'one'
   \ }
-colorscheme monokain
+
