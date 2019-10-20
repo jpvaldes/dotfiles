@@ -33,11 +33,14 @@ Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
+Plug 'patstockwell/vim-monokai-tasty'
 
 " deoplete
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
+" back to deoplete-jedi from ALE + pyls until pyls fixes #676
+Plug 'deoplete-plugins/deoplete-jedi'
 
 " snippets
 Plug 'Shougo/neosnippet.vim'
