@@ -36,7 +36,9 @@ let b:ale_python_pyls_config = {
             \   }
             \  },
             \ }
+let b:ale_python_flake8_change_directory = 0
 let b:ale_linters = ['flake8']
 let b:ale_fixers = ['yapf', 'isort']
-let b:ale_linters_explicit = 1
 let b:ale_fix_on_save = 1
+" close the preview window when done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
