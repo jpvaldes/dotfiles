@@ -181,3 +181,9 @@ let g:lightline = {
   \ 'colorscheme': 'one'
   \ }
 
+" Ignore certain files and folders when globbing
+set wildignore+=*.o,*.obj,*.bin,*.dll,*.exe
+set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**,*.pyc
+set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.bmp,*.tiff
+set wildignore+=*.DS_Store
+set wildignore+=*.aux,*.bbl,*.blg,*.brf,*.fls,*.fdb_latexmk,*.synctex.gz,*.pdf
