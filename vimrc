@@ -29,7 +29,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-peekaboo'
 
 " colorschemes
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
@@ -187,3 +187,33 @@ set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**,*.pyc
 set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.bmp,*.tiff
 set wildignore+=*.DS_Store
 set wildignore+=*.aux,*.bbl,*.blg,*.brf,*.fls,*.fdb_latexmk,*.synctex.gz,*.pdf
+
+if exists("*nvim_open_win")
+    " transparency for floating windows (0 is none)
+    set winblend=10
+
+    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+endif
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  " % of total height
+  let height = float2nr(&lines * 0.6)
+  " % of total width
+  let width = float2nr(&columns * 0.7)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 10
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
