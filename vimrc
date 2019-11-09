@@ -58,6 +58,7 @@ let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "2"
 
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -181,6 +182,7 @@ let g:deoplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " colorscheme
+set cursorline
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column = 'bg0'
