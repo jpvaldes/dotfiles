@@ -147,12 +147,31 @@ if [[ -n $(command -v highlight) ]]; then
 fi
 
 # Poor man's um, personal notes
-function mdless() {
+# new note
+nnote() {
+    mkdir -p ~/Documents/notes
+    local notefile=~/Documents/notes/$(date +"%d-%m-%Y").md
+    echo "# $(date +'%d.%m.%Y')" > ${notefile}
+    $EDITOR ${notefile}
+}
+# edit daily note
+enote() {
+    ${EDITOR} ~/Documents/notes/${1}.md
+}
+noteless() {
     pandoc -s -f markdown -t man ${1} | groff -T utf8 -man | less
 }
-umedit() { mkdir -p ~/.notes; ${EDITOR} ~/.notes/${1}; }
-um() { mdless ~/.notes/${1} }
-umls() { ls ~/.notes }
+
+notehtml() {
+    local htmlfile=/tmp/${1}.html
+    pandoc -s -f markdown -t html5 ${1} -o ${htmlfile} && xdg-open ${htmlfile}
+}
+# show note
+snote() { noteless ~/Documents/notes/${1}.md }
+# html note
+hnote() { notehtml ~/Documents/notes/${1}.md }
+# liss notes
+lnote() { ls -l ~/Documents/notes | column -t }
 
 # github.com/junegunn/fzf
 fzv () {
