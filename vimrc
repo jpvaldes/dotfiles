@@ -200,6 +200,34 @@ set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.bmp,*.tiff
 set wildignore+=*.DS_Store
 set wildignore+=*.aux,*.bbl,*.blg,*.brf,*.fls,*.fdb_latexmk,*.synctex.gz,*.pdf
 
+" simple statusline
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    " return l:counts.total == 0 ? 'OK' : printf(
+    " \   '%dW %dE',
+    " \   all_non_errors,
+    " \   all_errors
+    return printf(
+    \   '[%dW %dE]',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+set statusline =
+set statusline +=[%n]%y%m
+set statusline +=\ %f
+set statusline +=\ %h%r%w
+set statusline +=%{FugitiveStatusline()}
+set statusline +=\%{LinterStatus()}
+" Line, column and percentage
+set statusline +=%=%-8.((%l,%c%))\ %P
+
+" new floating windows
 if exists("*nvim_open_win")
     " transparency for floating windows (0 is none)
     set winblend=10

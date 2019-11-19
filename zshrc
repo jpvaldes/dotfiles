@@ -163,7 +163,7 @@ noteless() {
 }
 
 notehtml() {
-    local htmlfile=/tmp/${1}.html
+    local htmlfile=/tmp/${${1##*/}%.md}.html
     pandoc -s -f markdown -t html5 ${1} -o ${htmlfile} && xdg-open ${htmlfile}
 }
 # show note
