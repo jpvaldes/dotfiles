@@ -219,13 +219,17 @@ function! LinterStatus() abort
 endfunction
 
 set statusline =
-set statusline +=[%n]%y%m
-set statusline +=\ %f
-set statusline +=\ %h%r%w
-set statusline +=%{FugitiveStatusline()}
+set statusline +=\ %F
+set statusline +=\ %y%m
+set statusline +=\[%{mode()}\]
+set statusline +=%h%r%w
+" Right align
+set statusline +=%=
 set statusline +=\%{LinterStatus()}
-" Line, column and percentage
-set statusline +=%=%-8.((%l,%c%))\ %P
+set statusline +=%{FugitiveStatusline()}
+" Row, column and total rows
+set statusline +=\ %v\:%l\/%L
+set statusline +=\ [%n]
 
 " new floating windows
 if exists("*nvim_open_win")
