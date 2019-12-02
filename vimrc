@@ -49,17 +49,6 @@ Plug 'Shougo/neosnippet-snippets'
 " Ale
 Plug ('dense-analysis/ale')
 
-" jedi-vim (go to definitions, rename, ...)
-Plug 'davidhalter/jedi-vim'
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#completions_enabled = 0
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "2"
-
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
