@@ -77,7 +77,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -137,8 +137,14 @@ export WORK=/mnt/work/$(id -un)
 # export LC_ALL=de_DE.UTF-8
 # export LC_MESSAGES=POSIX
 
+# Helper to find executables
+exists()
+{
+    command -v ${1} > /dev/null 2>&1
+}
+
 # less setup to use highlight
-if [[ -n $(command -v highlight) ]]; then
+if exists highlight; then
     export LESSOPEN="| $(which highlight) --out-format=xterm256 --line-numbers --quiet --force --style=molokai %s"
     export LESS=" -R "
     export PAGER="less"
@@ -173,6 +179,7 @@ hnote() { notehtml ~/Documents/notes/${1}.md }
 # liss notes
 lnote() { ls -l ~/Documents/notes | column -t }
 
+# FZF
 # github.com/junegunn/fzf
 fzv () {
     # fuzzy vim: use fzf to call vim/nvim
@@ -184,10 +191,11 @@ fzv () {
     nvim $(fzf --preview "$prevops")
 }
 # Use fd instead of find if available
-if [[ -n $(command -v fd) ]]; then
-    export FZF_DEFAULT_COMMAND='fd --type f'
+# In Ubuntu the binary is called `fdfind`
+if exists fdfind; then
+    export FZF_DEFAULT_COMMAND='fdfind --type f'
     export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
-    export FZF_ALT_C_COMMAND='fd --type d --follow'
+    export FZF_ALT_C_COMMAND='fdfind --type d --follow'
 fi
 # some default options
 export FZF_DEFAULT_OPTS='--height 60% --reverse --preview-window up'
