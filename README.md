@@ -1,3 +1,11 @@
-Configuration files for Emacs (also with spacemacs), tmux, bash,
-ipython notebooks, latexmkrc. Using now vim-spf13 with no special
-customizations.
+# Configuration files
+
+Configuration files for different terminal programms.
+
+Some can be easily managed with [GNU Stow](http://www.gnu.org/software/stow/).
+For example, to set the configuration file for `top`:
+
+```sh
+$ cd dotfiles
+$ stow top
+```
