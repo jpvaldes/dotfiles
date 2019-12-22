@@ -1,14 +1,42 @@
+# Helper to find executables
+exists()
+{
+    command -v ${1} > /dev/null 2>&1
+}
+
+# git clone a repo in user/reponame form to optional dir
+clone-repo() {
+    local repo="${1}"
+    local dir="${2:-}"
+
+    repo="https://github.com/${repo%.git}.git"
+
+    [[ ! -z ${dir} ]] && mkdir -p "${dir}"
+
+    echo "++ bootstrap: cloning ${repo} in ${dir}"
+
+    git clone --depth=1 --recursive "${repo}" "${dir}"
+}
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Install oh-my-zsh if not found
+if [[ ! -d "${ZSH}" ]]; then
+    clone-repo ohmyzsh/ohmyzsh "${ZSH}"
+    clone-repo zsh-users/zsh-autosuggestions ${ZSH}/custom/plugins/zsh-autosuggestions
+    clone-repo zsh-users/zsh-syntax-highlighting ${ZSH}/custom/plugins/zsh-syntax-highlighting
+    # fix permissions or ohmyzsh does not load plugins
+    chmod -R g-w,o-w "${ZSH}"
+fi
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="avit"
-# ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -65,9 +93,9 @@ plugins=(
   python
   autojump
   extract
-  zsh-syntax-highlighting
   command-not-found
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -137,11 +165,6 @@ export WORK=/mnt/work/$(id -un)
 # export LC_ALL=de_DE.UTF-8
 # export LC_MESSAGES=POSIX
 
-# Helper to find executables
-exists()
-{
-    command -v ${1} > /dev/null 2>&1
-}
 
 # less setup to use highlight
 if exists highlight; then
@@ -167,7 +190,6 @@ enote() {
 noteless() {
     pandoc -s -f markdown -t man ${1} | groff -T utf8 -man | less
 }
-
 notehtml() {
     local htmlfile=/tmp/${${1##*/}%.md}.html
     pandoc -s -f markdown -t html5 ${1} -o ${htmlfile} && xdg-open ${htmlfile}
@@ -203,7 +225,7 @@ export FZF_DEFAULT_OPTS='--height 60% --reverse --preview-window up'
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind '?:toggle-preview'"
 # ALT-C options: show tree preview
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && . ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/jose/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jose/google-cloud-sdk/path.zsh.inc'; fi
