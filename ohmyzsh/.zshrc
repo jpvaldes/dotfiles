@@ -175,7 +175,7 @@ if exists highlight; then
     alias hicat="highlight --out-format=xterm256 --line-numbers --quiet --force --style=molokai $1"
 fi
 
-# Poor man's um, personal notes
+# personal notes, inspired by um notes
 # new note
 nnote() {
     mkdir -p ~/Documents/notes
