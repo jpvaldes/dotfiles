@@ -28,6 +28,8 @@ Thumbs.db
 # Misc
 *~
 *.swp
+swp/
+*.netrwhist
 
 # cython ipython magic dir
 ipython/cython
