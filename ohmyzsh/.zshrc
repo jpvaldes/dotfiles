@@ -91,7 +91,6 @@ plugins=(
   docker
   git
   python
-  autojump
   extract
   command-not-found
   zsh-autosuggestions
@@ -214,10 +213,11 @@ fzv () {
 }
 # Use fd instead of find if available
 # In Ubuntu the binary is called `fdfind`
-if exists fdfind; then
-    export FZF_DEFAULT_COMMAND='fdfind --type f'
+export FDBINARY=fd
+if exists ${FDBINARY}; then
+    export FZF_DEFAULT_COMMAND='${FDBINARY} --type f'
     export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
-    export FZF_ALT_C_COMMAND='fdfind --type d --follow'
+    export FZF_ALT_C_COMMAND='${FDBINARY} --type d --follow'
 fi
 # some default options
 export FZF_DEFAULT_OPTS='--height 60% --reverse --preview-window up'
