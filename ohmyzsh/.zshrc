@@ -164,6 +164,11 @@ export WORK=/mnt/work/$(id -un)
 # export LC_ALL=de_DE.UTF-8
 # export LC_MESSAGES=POSIX
 
+if exists nvim; then
+    EDITOR=nvim
+else
+    EDITOR=vim
+fi
 
 # less setup to use highlight
 if exists highlight; then
