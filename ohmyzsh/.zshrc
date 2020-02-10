@@ -237,3 +237,6 @@ if [ -f '/home/jose/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jose/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/jose/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jose/google-cloud-sdk/completion.zsh.inc'; fi
+
+# NIM with choosenim
+export PATH=~/.nimble/bin:$PATH
