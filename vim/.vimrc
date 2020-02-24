@@ -53,6 +53,13 @@ Plug ('dense-analysis/ale')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Vim-slime
+" You can type text in a file, send it to a live REPL, and avoid having to
+" reload all your code every time you make a change.
+Plug 'jpalardy/vim-slime'
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
+
 call plug#end()
 
 """ Basics
