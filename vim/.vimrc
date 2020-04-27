@@ -38,16 +38,16 @@ Plug 'patstockwell/vim-monokai-tasty'
 " deoplete
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " back to deoplete-jedi from ALE + pyls until pyls fixes #676
+    Plug 'deoplete-plugins/deoplete-jedi'
 endif
-" back to deoplete-jedi from ALE + pyls until pyls fixes #676
-Plug 'deoplete-plugins/deoplete-jedi'
 
 " snippets
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
 " Ale
-Plug ('dense-analysis/ale')
+Plug 'dense-analysis/ale'
 
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -215,7 +215,7 @@ function! LinterStatus() abort
 endfunction
 
 set statusline =
-set statusline +=\ %F
+set statusline +=\ %f
 set statusline +=\ %y%m
 set statusline +=\[%{mode()}\]
 set statusline +=%h%r%w
