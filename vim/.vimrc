@@ -35,13 +35,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 
-" deoplete
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    " back to deoplete-jedi from ALE + pyls until pyls fixes #676
-    Plug 'deoplete-plugins/deoplete-jedi'
-endif
-
 " snippets
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -52,6 +45,21 @@ Plug 'dense-analysis/ale'
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Jedi
+Plug 'davidhalter/jedi-vim'
+let g:jedi#auto_initilization = 1
+let g:jedi#completions_enabled = 0
+
+" NCM2
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-neosnippet'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
 
 " Vim-slime
 " You can type text in a file, send it to a live REPL, and avoid having to
