@@ -29,7 +29,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-peekaboo'
 
 " colorschemes
-" Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
@@ -46,20 +45,37 @@ Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Markdown support
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_level = 3
+
 " Jedi
-Plug 'davidhalter/jedi-vim'
-let g:jedi#auto_initilization = 1
-let g:jedi#completions_enabled = 0
+" Plug 'davidhalter/jedi-vim'
+" let g:jedi#auto_initilization = 1
+" let g:jedi#completions_enabled = 0
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'ncm2/ncm2-vim-lsp'
+" let's use ALE for diagnostics for now
+let g:lsp_diagnostics_enabled=0
+let g:lsp_settings_filetype_python = 'pyls-ms'
+let g:lsp_settings_filetype_nim = 'nimlsp'
 
 " NCM2
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
-Plug 'ncm2/ncm2-jedi'
+" Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-neosnippet'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
+
+" Completion preview window in neovim floating window
+Plug 'ncm2/float-preview.nvim'
 
 " Vim-slime
 " You can type text in a file, send it to a live REPL, and avoid having to
@@ -67,6 +83,10 @@ Plug 'ncm2/ncm2-path'
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
+
+" Cheat sheet
+" Default bind is <leader>?
+Plug 'lifepillar/vim-cheat40'
 
 call plug#end()
 
