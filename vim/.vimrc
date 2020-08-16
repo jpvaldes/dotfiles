@@ -30,9 +30,10 @@ Plug 'junegunn/vim-peekaboo'
 
 " colorschemes
 Plug 'chriskempson/base16-vim'
-Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'vimoxide/vim-cinnabar'
 
 " snippets
 Plug 'Shougo/neosnippet.vim'
@@ -75,7 +76,9 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 
 " Completion preview window in neovim floating window
-Plug 'ncm2/float-preview.nvim'
+if exists("*nvim_open_win")
+    Plug 'ncm2/float-preview.nvim'
+endif
 
 " Vim-slime
 " You can type text in a file, send it to a live REPL, and avoid having to
@@ -211,11 +214,7 @@ let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_color_column = 'bg0'
-colorscheme gruvbox
-
-let g:lightline = {
-  \ 'colorscheme': 'one'
-  \ }
+colorscheme cinnabar
 
 " Ignore certain files and folders when globbing
 set wildignore+=*.o,*.obj,*.bin,*.dll,*.exe
@@ -231,10 +230,6 @@ function! LinterStatus() abort
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
 
-    " return l:counts.total == 0 ? 'OK' : printf(
-    " \   '%dW %dE',
-    " \   all_non_errors,
-    " \   all_errors
     return printf(
     \   '[%dW %dE]',
     \   all_non_errors,
