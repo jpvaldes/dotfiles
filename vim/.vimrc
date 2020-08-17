@@ -52,33 +52,15 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_level = 3
 
 " Jedi
-" Plug 'davidhalter/jedi-vim'
-" let g:jedi#auto_initilization = 1
-" let g:jedi#completions_enabled = 0
+Plug 'davidhalter/jedi-vim'
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'ncm2/ncm2-vim-lsp'
-" let's use ALE for diagnostics for now
-let g:lsp_diagnostics_enabled=0
-let g:lsp_settings_filetype_python = 'pyls-ms'
-let g:lsp_settings_filetype_nim = 'nimlsp'
+" Nim
+Plug 'zah/nim.vim'
 
-" NCM2
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-" Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-neosnippet'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-
-" Completion preview window in neovim floating window
-if exists("*nvim_open_win")
-    Plug 'ncm2/float-preview.nvim'
-endif
+" Autocomplete
+Plug 'lifepillar/vim-mucomplete'
+set completeopt+=longest,menuone,noinsert
+let g:mucomplete#enable_auto_at_startup = 1
 
 " Vim-slime
 " You can type text in a file, send it to a live REPL, and avoid having to
@@ -194,8 +176,8 @@ nnoremap <Leader>f :Files<CR>
 " delete trailing whitespace
 nnoremap <Leader>kw :%s/\s\+$//<CR>
 " TAB to cycle through completion options
-inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " call FZF with F9
 noremap <silent><F9> :FZF<CR>
 " clear the search highlights
@@ -254,34 +236,3 @@ set statusline +=%{FugitiveStatusline()}
 " Row, column and total rows
 set statusline +=\ %v\:%l\/%L
 set statusline +=\ [%n]
-
-" new floating windows
-if exists("*nvim_open_win")
-    " transparency for floating windows (0 is none)
-    set winblend=10
-
-    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-endif
-
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  " % of total height
-  let height = float2nr(&lines * 0.6)
-  " % of total width
-  let width = float2nr(&columns * 0.7)
-  let horizontal = float2nr((&columns - width) / 2)
-  let vertical = 10
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': vertical,
-        \ 'col': horizontal,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction
