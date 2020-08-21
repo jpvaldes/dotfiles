@@ -90,7 +90,8 @@ set updatetime=100
 set backspace=indent,eol,start
 syntax on
 filetype plugin indent on
-set ruler
+set noruler
+set laststatus=2
 set history=1000
 set hidden
 " set spell
@@ -199,8 +200,6 @@ xmap <C-j>     <Plug>(neosnippet_expand_target)
 nmap <silent> <Leader>n <Plug>(ale_next_wrap)
 nmap <silent> <Leader>N <Plug>(ale_previous_wrap)
 
-let g:deoplete#enable_at_startup = 1
-
 let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " colorscheme
@@ -233,7 +232,7 @@ function! LinterStatus() abort
 endfunction
 
 set statusline =
-set statusline +=\ %f
+set statusline +=\ %t
 set statusline +=\ %y%m
 set statusline +=\[%{mode()}\]
 set statusline +=%h%r%w
