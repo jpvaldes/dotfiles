@@ -193,12 +193,9 @@ noremap <silent><F9> :FZF<CR>
 nnoremap <C-l> :nohlsearch<CR>
 " Neosnippet key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-j>     <Plug>(neosnippet_expand_or_jump)
-smap <C-j>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-j>     <Plug>(neosnippet_expand_target)
-" ALE
-nmap <silent> <Leader>n <Plug>(ale_next_wrap)
-nmap <silent> <Leader>N <Plug>(ale_previous_wrap)
+imap <C-e>     <Plug>(neosnippet_expand_or_jump)
+smap <C-e>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-e>     <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
