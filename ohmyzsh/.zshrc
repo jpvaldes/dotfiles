@@ -29,6 +29,7 @@ if [[ ! -d "${ZSH}" ]]; then
     clone-repo ohmyzsh/ohmyzsh "${ZSH}"
     clone-repo zsh-users/zsh-autosuggestions ${ZSH}/custom/plugins/zsh-autosuggestions
     clone-repo zsh-users/zsh-syntax-highlighting ${ZSH}/custom/plugins/zsh-syntax-highlighting
+    clone-repo supercrabtree/k ${ZSH}/custom/plugins/k
     # fix permissions or ohmyzsh does not load plugins
     chmod -R g-w,o-w "${ZSH}"
 fi
