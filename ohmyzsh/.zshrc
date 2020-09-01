@@ -135,7 +135,6 @@ alias ssh256='TERM=xterm-256color ssh'
 
 # echo "Adding user's bin/ to path"
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/abin
 export PATH=$PATH:/opt/bin:/opt/app
 
 CONDA_FOUND=0
@@ -233,11 +232,5 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 [[ -f ~/.fzf.zsh ]] && . ~/.fzf.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/jose/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jose/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/jose/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jose/google-cloud-sdk/completion.zsh.inc'; fi
-
-# NIM with choosenim
-export PATH=~/.nimble/bin:$PATH
+# Load local config if exists
+[[ -f ~/.local.zsh ]] && . ~/.local.zsh
