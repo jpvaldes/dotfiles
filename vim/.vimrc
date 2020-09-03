@@ -59,23 +59,11 @@ Plug 'zah/nim.vim'
 
 " Autocomplete
 Plug 'lifepillar/vim-mucomplete'
-set completeopt+=menuone,noinsert,noselect
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#chains = {
-                  \ 'default':    ['file', 'keyn', 'omni', 'user', 'defs', 'incl', 'c-n', 'uspl'],
-                  \ 'vim':        ['file', 'keyn', 'cmd',  'omni', 'user', 'c-n', 'uspl'],
-                  \ 'text':       ['file', 'c-n',  'uspl', 'omni', 'user'],
-                  \ 'markdown':   ['file', 'c-n',  'uspl', 'omni', 'user'],
-                  \ 'python':     ['omni', 'nsnp', 'defs', 'incl', 'file', 'c-n', 'user'],
-                  \ }
-set shortmess+=c
 
 " Vim-slime
 " You can type text in a file, send it to a live REPL, and avoid having to
 " reload all your code every time you make a change.
 Plug 'jpalardy/vim-slime'
-let g:slime_target = "tmux"
-let g:slime_python_ipython = 1
 
 " Cheat sheet
 " Default bind is <leader>?
