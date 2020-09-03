@@ -195,6 +195,10 @@ let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_color_column = 'bg0'
 colorscheme cinnabar
 
+if has("gui_running")
+    set guifont=Iosevka\ Term\ Medium\ 17,Hack\ 16
+endif
+
 " Ignore certain files and folders when globbing
 set wildignore+=*.o,*.obj,*.bin,*.dll,*.exe
 set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**,*.pyc
