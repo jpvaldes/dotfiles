@@ -6,6 +6,10 @@ let g:mucomplete#chains = {
                   \ 'vim':        ['file', 'keyn', 'cmd',  'omni', 'user', 'c-n', 'uspl'],
                   \ 'text':       ['file', 'c-n',  'uspl', 'omni', 'user'],
                   \ 'markdown':   ['file', 'c-n',  'uspl', 'omni', 'user'],
-                  \ 'python':     ['omni', 'nsnp', 'file', 'c-n', 'user'],
+                  \ 'python':     ['omni', 'nsnp', 'file', 'c-n'],
                   \ }
 
+" neosnippet (configuration from the documentation)
+inoremap <silent> <expr> <plug><MyCR>
+            \ mucomplete#neosnippet#expand_snippet("\<cr>")
+imap <cr> <plug><MyCR>
