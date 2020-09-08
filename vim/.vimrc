@@ -78,8 +78,6 @@ set updatetime=100
 set backspace=indent,eol,start
 syntax on
 filetype plugin indent on
-set noruler
-set laststatus=2
 set history=1000
 set hidden
 " set spell
@@ -220,15 +218,18 @@ function! LinterStatus() abort
     \)
 endfunction
 
-set statusline =
-set statusline +=\ %t
-set statusline +=\ %y%m
+set laststatus=2
+set noruler
+set noshowmode
+set statusline =%y
 set statusline +=\[%{mode()}\]
+set statusline +=%m
+set statusline +=\ %.20F
 set statusline +=%h%r%w
 " Right align
 set statusline +=%=
 set statusline +=\%{LinterStatus()}
 set statusline +=%{FugitiveStatusline()}
 " Row, column and total rows
-set statusline +=\ %v\:%l\/%L
+set statusline +=\ %3v\:%-3.4l\/%-4L
 set statusline +=\ [%n]
