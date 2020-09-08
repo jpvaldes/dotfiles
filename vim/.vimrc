@@ -34,6 +34,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'vimoxide/vim-cinnabar'
+Plug 'srcery-colors/srcery-vim'
 
 " snippets
 Plug 'Shougo/neosnippet.vim'
@@ -187,9 +188,9 @@ let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " colorscheme
 set cursorline
-let g:sonokai_style = 'atlantis'
-let g:sonokai_enable_italic = 0
-colorscheme sonokai
+let g:srcery_italic = 1
+let g:srcery_bold = 1
+colorscheme srcery
 
 if has("gui_running")
     set guifont=Iosevka\ Term\ Medium\ 17,Hack\ 16
