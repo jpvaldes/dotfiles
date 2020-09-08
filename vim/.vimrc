@@ -187,11 +187,9 @@ let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " colorscheme
 set cursorline
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_sign_column = 'bg0'
-let g:gruvbox_color_column = 'bg0'
-colorscheme cinnabar
+let g:sonokai_style = 'atlantis'
+let g:sonokai_enable_italic = 0
+colorscheme sonokai
 
 if has("gui_running")
     set guifont=Iosevka\ Term\ Medium\ 17,Hack\ 16
