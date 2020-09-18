@@ -214,18 +214,26 @@ function! LinterStatus() abort
     \)
 endfunction
 
+function! GitStatus() abort
+    "Do not print `Git[()] from fugitive
+    let l:currentbranch = exists("g:loaded_fugitive")?fugitive#statusline():""
+    let l:currentbranch = substitute(l:currentbranch, '[Git(', '', '')
+    let l:currentbranch = substitute(l:currentbranch, ')]', '', '')
+    return l:currentbranch
+endfunction
+
 set laststatus=2
 set noruler
 set noshowmode
 set statusline =%y
 set statusline +=\[%{mode()}\]
 set statusline +=%m
-set statusline +=\ %.20F
+set statusline +=\ %.24F
 set statusline +=%h%r%w
 " Right align
 set statusline +=%=
 set statusline +=\%{LinterStatus()}
-set statusline +=%{FugitiveStatusline()}
+set statusline +=\ g:%.24{GitStatus()}
 " Row, column and total rows
 set statusline +=\ %3v\:%-3.4l\/%-4L
 set statusline +=\ [%n]
