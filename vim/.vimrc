@@ -55,6 +55,10 @@ let g:vim_markdown_folding_level = 3
 " Jedi
 Plug 'davidhalter/jedi-vim'
 
+" Nim
+" This plugin is Python-based
+Plug 'zah/nim.vim'
+
 " Autocomplete
 Plug 'lifepillar/vim-mucomplete'
 
