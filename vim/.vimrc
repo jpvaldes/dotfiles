@@ -188,10 +188,57 @@ xmap <C-e>     <Plug>(neosnippet_expand_target)
 let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " colorscheme
+" Put the cursor over an element and find its name with 
+" `:echo synIDattr(synID(line('.'), col('.'), 1), 'name')`
 set cursorline
-let g:srcery_italic = 1
-let g:srcery_bold = 1
-colorscheme srcery
+function! Highlight(group, fg, bg, style)
+  exec "hi " . a:group
+        \ . " ctermfg=" . a:fg["cterm"]
+        \ . " ctermbg=" . a:bg["cterm"]
+        \ . " cterm=" . a:style["cterm"]
+        \ . " guifg=" . a:fg["gui"]
+        \ . " guibg=" . a:bg["gui"]
+        \ . " gui=" . a:style["gui"]
+endfunction
+let s:italic = { "cterm": "italic", "gui": "italic" }
+let s:bold = { "cterm": "bold", "gui": "bold" }
+let s:underline = { "cterm": "underline", "gui": "underline" }
+let s:bold_underline = { "cterm": "bold,underline", "gui": "bold,underline" }
+let s:none = { "cterm": "NONE", "gui": "NONE" }
+let s:orange = { "cterm": 233, "gui": "#FD971F" }
+let s:tasty_orange = { "cterm": 208, "gui": "#FF9700" }
+let s:light_green = { "cterm": 148, "gui": "#A4E400" }
+let s:light_blue = { "cterm": 81, "gui": "#62D8F1" }
+let s:magenta = { "cterm": 197, "gui": "#FC1A70" }
+let s:purple = { "cterm": 141, "gui": "#af87ff" }
+let s:white = { "cterm": 231, "gui": "#ffffff" }
+let s:light_grey = { "cterm": 250, "gui": "#bcbcbc" }
+let s:grey = { "cterm": 245, "gui": "#8a8a8a" }
+let s:dark_grey = { "cterm": 59, "gui": "#5f5f5f" }
+let s:darker_grey = { "cterm": 238, "gui": "#444444" }
+let s:light_charcoal = { "cterm": 238, "gui": "#2b2b2b" }
+let s:charcoal = { "cterm": 235, "gui": "#262626" }
+colorscheme molokai  " this has elements from monokai-tasty
+" Fix invisible paren
+call Highlight("MatchParen", s:orange, s:charcoal, s:italic)
+call Highlight("Comment", s:grey, s:none, s:italic)
+" GitGutter
+call Highlight("GitGutterAdd", s:light_green, s:none, s:bold)
+call Highlight("GitGutterChange", s:light_blue, s:none, s:bold)
+call Highlight("GitGutterDelete", s:magenta, s:none, s:bold)
+call Highlight("GitGutterChangeDelete", s:orange, s:none, s:bold)
+" Python
+hi link pythonTripleQuotes Comment
+hi link pythonDoctest Comment
+hi link pythonDoctest2 Comment
+
+" call Highlight("mkdHeading", s:magenta, s:none, s:none)
+call Highlight("mkdURL", s:light_green, s:none, s:none)
+call Highlight("mkdLink", s:light_blue, s:none, s:underline)
+call Highlight("mkdCode", s:orange, s:none, s:none)
+call Highlight("mkdCodeStart", s:light_green, s:none, s:none)
+call Highlight("mkdCodeEnd", s:light_green, s:none, s:none)
+call Highlight("mkdDelimiter", s:purple, s:none, s:none)
 
 if has("gui_running")
     set guifont=Iosevka\ Term\ Medium\ 17,Hack\ 16
