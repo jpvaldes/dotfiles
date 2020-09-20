@@ -15,7 +15,7 @@ else
 endif
 
 " basics
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " general purpose
 Plug 'tpope/vim-commentary'
