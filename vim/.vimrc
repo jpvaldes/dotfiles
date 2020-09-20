@@ -284,7 +284,7 @@ set statusline +=%h%r%w
 " Right align
 set statusline +=%=
 set statusline +=\%{LinterStatus()}
-set statusline +=\ g:%.24{GitStatus()}
+set statusline +=\ %.24{GitStatus()}
 " Row, column and total rows
 set statusline +=\ %3v\:%-3.4l\/%-4L
 set statusline +=\ [%n]
