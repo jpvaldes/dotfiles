@@ -211,6 +211,8 @@ let s:light_green = { "cterm": 148, "gui": "#A4E400" }
 let s:light_blue = { "cterm": 81, "gui": "#62D8F1" }
 let s:magenta = { "cterm": 197, "gui": "#FC1A70" }
 let s:purple = { "cterm": 141, "gui": "#af87ff" }
+let s:red = { "cterm": 162, "gui": "#f02e6e" }
+let s:light_red = { "cterm": 219, "gui": "#f48fb1" }
 let s:white = { "cterm": 231, "gui": "#ffffff" }
 let s:light_grey = { "cterm": 250, "gui": "#bcbcbc" }
 let s:grey = { "cterm": 245, "gui": "#8a8a8a" }
@@ -218,10 +220,20 @@ let s:dark_grey = { "cterm": 59, "gui": "#5f5f5f" }
 let s:darker_grey = { "cterm": 238, "gui": "#444444" }
 let s:light_charcoal = { "cterm": 238, "gui": "#2b2b2b" }
 let s:charcoal = { "cterm": 235, "gui": "#262626" }
-colorscheme molokai  " this has elements from monokai-tasty
+" molokai but modified below with elements from monokai-tasty
+colorscheme molokai
 " Fix invisible paren
 call Highlight("MatchParen", s:orange, s:charcoal, s:italic)
 call Highlight("Comment", s:grey, s:none, s:italic)
+" Make the red less red
+call Highlight("Conditional", s:red, s:none, s:none)
+call Highlight("ErrorMsg", s:red, s:none, s:none)
+call Highlight("Keyword", s:red, s:none, s:none)
+call Highlight("Operator", s:red, s:none, s:none)
+call Highlight("Repeat", s:red, s:none, s:none)
+call Highlight("SpecialChar", s:red, s:none, s:none)
+call Highlight("Statement", s:red, s:none, s:none)
+call Highlight("Tag", s:red, s:none, s:none)
 " GitGutter
 call Highlight("GitGutterAdd", s:light_green, s:none, s:bold)
 call Highlight("GitGutterChange", s:light_blue, s:none, s:bold)
