@@ -211,7 +211,7 @@ let s:light_green = { "cterm": 148, "gui": "#A4E400" }
 let s:light_blue = { "cterm": 81, "gui": "#62D8F1" }
 let s:magenta = { "cterm": 197, "gui": "#FC1A70" }
 let s:purple = { "cterm": 141, "gui": "#af87ff" }
-let s:red = { "cterm": 162, "gui": "#f02e6e" }
+let s:red = { "cterm": 162, "gui": "#ff3176" }
 let s:light_red = { "cterm": 219, "gui": "#f48fb1" }
 let s:white = { "cterm": 231, "gui": "#ffffff" }
 let s:light_grey = { "cterm": 250, "gui": "#bcbcbc" }
@@ -240,7 +240,7 @@ call Highlight("GitGutterChange", s:light_blue, s:none, s:bold)
 call Highlight("GitGutterDelete", s:magenta, s:none, s:bold)
 call Highlight("GitGutterChangeDelete", s:orange, s:none, s:bold)
 " Python
-hi link pythonTripleQuotes Comment
+" hi link pythonTripleQuotes Comment
 hi link pythonDoctest Comment
 hi link pythonDoctest2 Comment
 
