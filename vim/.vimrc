@@ -50,7 +50,7 @@ Plug 'junegunn/fzf.vim'
 " Markdown support
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_level = 3
+let g:vim_markdown_folding_level = 0
 
 " Jedi
 Plug 'davidhalter/jedi-vim'
