@@ -11,3 +11,8 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " numbers
 setlocal number
 setlocal relativenumber
+
+" do not search in included files for completion
+" see the tips section in mucomplete's documentation
+" and :help 'cpt' for more options
+set complete-=i
