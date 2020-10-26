@@ -77,6 +77,8 @@ call plug#end()
 let mapleader = ','
 " shorter update times (default 4s)
 set updatetime=100
+" eliminate delays after pressing ESC
+set timeoutlen=1000 ttimeoutlen=10
 set backspace=indent,eol,start
 syntax on
 filetype plugin indent on
