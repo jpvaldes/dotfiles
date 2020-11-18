@@ -47,10 +47,8 @@ Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Markdown support
+" Tabular support
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_level = 0
 
 " Jedi
 Plug 'davidhalter/jedi-vim'
@@ -78,7 +76,12 @@ let mapleader = ','
 " shorter update times (default 4s)
 set updatetime=100
 " eliminate delays after pressing ESC
-set timeoutlen=1000 ttimeoutlen=10
+" separate mapping and keycode timeouts
+set timeout ttimeout
+" mapping timeout
+set timeoutlen=1000
+" keycode timeout
+set ttimeoutlen=10
 set backspace=indent,eol,start
 syntax on
 filetype plugin indent on
@@ -189,6 +192,12 @@ xmap <C-e>     <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
+" markdown
+" this options do not work in after/ftplugin
+let g:markdown_folding = 1
+let g:markdown_fenced_languages = ['html', 'css', 'python', 'bash=sh', 'nim']
+set foldlevelstart=1
+
 " colorscheme
 " Put the cursor over an element and find its name with 
 " `:echo synIDattr(synID(line('.'), col('.'), 1), 'name')`
@@ -255,7 +264,7 @@ call Highlight("mkdCodeEnd", s:light_green, s:none, s:none)
 call Highlight("mkdDelimiter", s:purple, s:none, s:none)
 
 if has("gui_running")
-    set guifont=Iosevka\ Term\ Medium\ 17,Hack\ 16
+    set guifont=Hack\ 12
 endif
 
 " Ignore certain files and folders when globbing
