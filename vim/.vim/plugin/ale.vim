@@ -4,6 +4,9 @@ if &diff
 endif
 
 let g:ale_sign_error = '✖'
+let g:ale_sign_info = '⚠️'
+let g:ale_sign_warning = 'W'
+
 
 " Mappings
 nmap <silent> <Leader>a <Plug>(ale_next_wrap)zz

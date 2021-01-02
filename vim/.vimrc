@@ -14,9 +14,6 @@ else
     call plug#begin('~/.vim/plugged')
 endif
 
-" basics
-" Plug 'sheerun/vim-polyglot'
-
 " general purpose
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -41,7 +38,11 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
 " Ale
+let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
+
+ " Autocomplete
+ Plug 'lifepillar/vim-mucomplete'
 
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -50,15 +51,9 @@ Plug 'junegunn/fzf.vim'
 " Tabular support
 Plug 'godlygeek/tabular'
 
-" Jedi
-Plug 'davidhalter/jedi-vim'
-
 " Nim
 " This plugin is Python-based
 Plug 'zah/nim.vim'
-
-" Autocomplete
-Plug 'lifepillar/vim-mucomplete'
 
 " Vim-slime
 " You can type text in a file, send it to a live REPL, and avoid having to
@@ -178,7 +173,14 @@ nnoremap <Leader>f :Files<CR>
 " delete trailing whitespace
 nnoremap <Leader>kw :%s/\s\+$//<CR>
 " TAB to cycle through completion options
-" inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" function! s:check_back_space() abort
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ "\<TAB>"
 " inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " call FZF with F9
 noremap <silent><F9> :FZF<CR>
