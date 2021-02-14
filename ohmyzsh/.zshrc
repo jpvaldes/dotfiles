@@ -18,9 +18,6 @@ clone-repo() {
     git clone --depth=1 --recursive "${repo}" "${dir}"
 }
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -89,6 +86,7 @@ HIST_STAMPS="dd.mm.yyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  asdf
   docker
   git
   python
@@ -131,30 +129,8 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias ssh256='TERM=xterm-256color ssh'
 
-# echo "Adding ASHS (fastashs) to the path:"
-# export ASHS_ROOT=$HOME/Source/external/ashs
-
 # echo "Adding user's bin/ to path"
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:/opt/bin:/opt/app
-
-CONDA_FOUND=0
-# Conda
-if [[ -d /opt/conda ]]; then
-    # should that be source /opt/conda/bin/activate
-    # instead of just export the conda bin path?
-    . "/opt/conda/etc/profile.d/conda.sh"
-    CONDA_FOUND=1
-elif [[ -d $HOME/miniconda ]]; then
-    # export PATH="$HOME/conda/bin:$PATH"
-    . "$HOME/miniconda/etc/profile.d/conda.sh"
-    CONDA_FOUND=1
-fi
-if [[ ${CONDA_FOUND} == 1 ]]; then
-    conda activate base
-fi
-# alias for common environments
-alias sdk="conda activate sdk"
 
 export WORK=/mnt/work/$(id -un)
 
@@ -215,13 +191,13 @@ fzv () {
         echo {} is a binary file ||
         (highlight -O xterm256 --line-numbers --style=molokai {} ||
          cat{})2> /dev/null |head -500'
-    nvim $(fzf --preview "$prevops")
+    $EDITOR $(fzf --preview "$prevops")
 }
 # Use fd instead of find if available
 # In Ubuntu the binary is called `fdfind`
 export FDBINARY=fd
 if exists ${FDBINARY}; then
-    export FZF_DEFAULT_COMMAND='${FDBINARY} --type f'
+    export FZF_DEFAULT_COMMAND='${FDBINARY} --type f --hidden --exclude .git'
     export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
     export FZF_ALT_C_COMMAND='${FDBINARY} --type d --follow'
 fi
