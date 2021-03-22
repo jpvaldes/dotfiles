@@ -1,5 +1,5 @@
 # Helper to find executables
-exists()
+exists_executable()
 {
     command -v ${1} > /dev/null 2>&1
 }
@@ -141,14 +141,14 @@ export WORK=/mnt/work/$(id -un)
 # export LC_ALL=de_DE.UTF-8
 # export LC_MESSAGES=POSIX
 
-if exists nvim; then
+if exists_executable nvim; then
     EDITOR=nvim
 else
     EDITOR=vim
 fi
 
 # less setup to use highlight
-if exists highlight; then
+if exists_executable highlight; then
     export LESSOPEN="| $(which highlight) --out-format=xterm256 --line-numbers --quiet --force --style=molokai %s"
     export LESS=" -R "
     export PAGER="less"
@@ -160,13 +160,19 @@ fi
 # new note
 nnote() {
     mkdir -p ~/Documents/notes
-    local notefile=~/Documents/notes/$(date +"%d-%m-%Y").md
-    echo "# $(date +'%d.%m.%Y')" > ${notefile}
+    local notefile=~/Documents/notes/$(date +"%Y-%m-%d").md
+    echo "# $(date +'%Y.%m.%d')" > ${notefile}
     $EDITOR ${notefile}
 }
 # edit daily note
 enote() {
-    ${EDITOR} ~/Documents/notes/${1}.md
+    # allow input filename with or without .md
+    local notefile=${1%.md}.md
+    if [[ -f ${notefile} ]]; then
+        ${EDITOR} ~/Documents/notes/${notefile}
+    else
+        echo "$notefile not found. Nothing to do."
+    fi
 }
 noteless() {
     pandoc -s -f markdown -t man ${1} | groff -T utf8 -man | less
@@ -196,7 +202,7 @@ fzv () {
 # Use fd instead of find if available
 # In Ubuntu the binary is called `fdfind`
 export FDBINARY=fd
-if exists ${FDBINARY}; then
+if exists_executable ${FDBINARY}; then
     export FZF_DEFAULT_COMMAND='${FDBINARY} --type f --hidden --exclude .git'
     export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
     export FZF_ALT_C_COMMAND='${FDBINARY} --type d --follow'
