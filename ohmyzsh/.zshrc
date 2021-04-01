@@ -213,6 +213,21 @@ export FZF_DEFAULT_OPTS='--height 60% --reverse --preview-window up'
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind '?:toggle-preview'"
 # ALT-C options: show tree preview
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+# python envs, from https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf/
+activate-venv() {
+    local selected_env
+    selected_env=$(ls ~/envs/ | fzf)
+    [[ -n "${selected_env}" ]] && source "$HOME/envs/${selected_env}/bin/activate"
+}
+# choose and change branch with preview
+change-branch() {
+    git branch |
+        grep --invert-match '\*' |
+        cut -c 3- |
+        fzf --preview="git log {}" |
+        xargs git checkout
+}
+
 [[ -f ~/.fzf.zsh ]] && . ~/.fzf.zsh
 
 # Load local config if exists

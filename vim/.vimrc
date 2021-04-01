@@ -304,7 +304,7 @@ set noshowmode
 set statusline =%y
 set statusline +=\[%{mode()}\]
 set statusline +=%m
-set statusline +=\ %.24F
+set statusline +=%<%{pathshorten(expand('%'))}
 set statusline +=%h%r%w
 " Right align
 set statusline +=%=
