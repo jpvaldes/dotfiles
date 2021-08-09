@@ -106,8 +106,8 @@ set directory=~/.vim/swp/
 
 " set termguicolors
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
@@ -204,66 +204,8 @@ set foldlevelstart=1
 " Put the cursor over an element and find its name with 
 " `:echo synIDattr(synID(line('.'), col('.'), 1), 'name')`
 set cursorline
-function! Highlight(group, fg, bg, style)
-  exec "hi " . a:group
-        \ . " ctermfg=" . a:fg["cterm"]
-        \ . " ctermbg=" . a:bg["cterm"]
-        \ . " cterm=" . a:style["cterm"]
-        \ . " guifg=" . a:fg["gui"]
-        \ . " guibg=" . a:bg["gui"]
-        \ . " gui=" . a:style["gui"]
-endfunction
-let s:italic = { "cterm": "italic", "gui": "italic" }
-let s:bold = { "cterm": "bold", "gui": "bold" }
-let s:underline = { "cterm": "underline", "gui": "underline" }
-let s:bold_underline = { "cterm": "bold,underline", "gui": "bold,underline" }
-let s:none = { "cterm": "NONE", "gui": "NONE" }
-let s:orange = { "cterm": 233, "gui": "#FD971F" }
-let s:tasty_orange = { "cterm": 208, "gui": "#FF9700" }
-let s:light_green = { "cterm": 148, "gui": "#A4E400" }
-let s:light_blue = { "cterm": 81, "gui": "#62D8F1" }
-let s:magenta = { "cterm": 197, "gui": "#FC1A70" }
-let s:purple = { "cterm": 141, "gui": "#af87ff" }
-let s:red = { "cterm": 162, "gui": "#ff3176" }
-let s:light_red = { "cterm": 219, "gui": "#f48fb1" }
-let s:white = { "cterm": 231, "gui": "#ffffff" }
-let s:light_grey = { "cterm": 250, "gui": "#bcbcbc" }
-let s:grey = { "cterm": 245, "gui": "#8a8a8a" }
-let s:dark_grey = { "cterm": 59, "gui": "#5f5f5f" }
-let s:darker_grey = { "cterm": 238, "gui": "#444444" }
-let s:light_charcoal = { "cterm": 238, "gui": "#2b2b2b" }
-let s:charcoal = { "cterm": 235, "gui": "#262626" }
-" molokai but modified below with elements from monokai-tasty
-colorscheme molokai
-" Fix invisible paren
-call Highlight("MatchParen", s:orange, s:charcoal, s:italic)
-call Highlight("Comment", s:grey, s:none, s:italic)
-" Make the red less red
-call Highlight("Conditional", s:red, s:none, s:none)
-call Highlight("ErrorMsg", s:red, s:none, s:none)
-call Highlight("Keyword", s:red, s:none, s:none)
-call Highlight("Operator", s:red, s:none, s:none)
-call Highlight("Repeat", s:red, s:none, s:none)
-call Highlight("SpecialChar", s:red, s:none, s:none)
-call Highlight("Statement", s:red, s:none, s:none)
-call Highlight("Tag", s:red, s:none, s:none)
-" GitGutter
-call Highlight("GitGutterAdd", s:light_green, s:none, s:bold)
-call Highlight("GitGutterChange", s:light_blue, s:none, s:bold)
-call Highlight("GitGutterDelete", s:magenta, s:none, s:bold)
-call Highlight("GitGutterChangeDelete", s:orange, s:none, s:bold)
-" Python
-" hi link pythonTripleQuotes Comment
-hi link pythonDoctest Comment
-hi link pythonDoctest2 Comment
-
-" call Highlight("mkdHeading", s:magenta, s:none, s:none)
-call Highlight("mkdURL", s:light_green, s:none, s:none)
-call Highlight("mkdLink", s:light_blue, s:none, s:underline)
-call Highlight("mkdCode", s:orange, s:none, s:none)
-call Highlight("mkdCodeStart", s:light_green, s:none, s:none)
-call Highlight("mkdCodeEnd", s:light_green, s:none, s:none)
-call Highlight("mkdDelimiter", s:purple, s:none, s:none)
+set background=light
+colorscheme PaperColor
 
 if has("gui_running")
     set guifont=Hack\ 12
