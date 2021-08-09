@@ -149,11 +149,11 @@ fi
 
 # less setup to use highlight
 if exists_executable highlight; then
-    export LESSOPEN="| $(which highlight) --out-format=xterm256 --line-numbers --quiet --force --style=molokai %s"
+    export LESSOPEN='| $(which highlight) --out-format=xterm256 --line-numbers --quiet --force --style="base16/one-light" %s'
     export LESS=" -R "
     export PAGER="less"
     # alternative to cat using highligh
-    alias hicat="highlight --out-format=xterm256 --line-numbers --quiet --force --style=molokai $1"
+    alias hicat='highlight --out-format=xterm256 --line-numbers --quiet --force --style="base16/one-light" $1'
 fi
 
 # personal notes, inspired by um notes
@@ -195,7 +195,7 @@ fzv () {
     local prevops
     prevops='[[ $(file --mime {}) =~ binary ]] &&
         echo {} is a binary file ||
-        (highlight -O xterm256 --line-numbers --style=molokai {} ||
+        (highlight -O xterm256 --line-numbers --style="base16/one-light" {} ||
          cat{})2> /dev/null |head -500'
     $EDITOR $(fzf --preview "$prevops")
 }
@@ -203,7 +203,7 @@ fzv () {
 # In Ubuntu the binary is called `fdfind`
 export FDBINARY=fd
 if exists_executable ${FDBINARY}; then
-    export FZF_DEFAULT_COMMAND='${FDBINARY} --type f --hidden --exclude .git'
+    export FZF_DEFAULT_COMMAND="${FDBINARY} --type f --hidden --exclude .git --exclude '.*cache*' --exclude '.ipynb_*'"
     export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
     export FZF_ALT_C_COMMAND='${FDBINARY} --type d --follow'
 fi
