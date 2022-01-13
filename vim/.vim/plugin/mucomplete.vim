@@ -7,8 +7,8 @@ let g:mucomplete#chains = {
                   \ 'vim':        ['file', 'keyn', 'cmd',  'omni', 'user', 'c-n', 'uspl'],
                   \ 'text':       ['file', 'c-n',  'uspl', 'omni', 'user'],
                   \ 'markdown':   ['file', 'c-n',  'uspl', 'omni', 'user'],
-                  \ 'python':     ['nsnp', 'file'],
-                  \ 'nim':        ['c-n', 'file', 'nsnp'],
+                  \ 'python':     ['keyn', 'file'],
+                  \ 'nim':        ['keyn', 'file'],
                   \ }
 
 " neosnippet (configuration from the documentation)

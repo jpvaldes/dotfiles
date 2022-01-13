@@ -42,7 +42,7 @@ let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
 
  " Autocomplete
- Plug 'lifepillar/vim-mucomplete'
+Plug 'lifepillar/vim-mucomplete'
 
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -63,6 +63,9 @@ Plug 'jpalardy/vim-slime'
 " Cheat sheet
 " Default bind is <leader>?
 Plug 'lifepillar/vim-cheat40'
+
+" Indent-level based motion
+Plug 'jeetsukumaran/vim-indentwise'
 
 call plug#end()
 
@@ -88,6 +91,8 @@ set spelllang=en_us
 set nostartofline
 " Whether to treat underscore *_* as word (but not WORD) separator
 " set iskeyword-=_
+" use number column also for signs
+set signcolumn=number
 " Swap and backup files under .vim instead of cluttering the working dir
 " Step 1: check dir exists and create if needed
 if !isdirectory($HOME . "/.vim/backup")
@@ -106,8 +111,8 @@ set directory=~/.vim/swp/
 
 " set termguicolors
 if exists('+termguicolors')
-  " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
@@ -191,6 +196,8 @@ nnoremap <C-l> :nohlsearch<CR>
 imap <C-e>     <Plug>(neosnippet_expand_or_jump)
 smap <C-e>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-e>     <Plug>(neosnippet_expand_target)
+" Open location list
+nnoremap <leader>l :lopen<CR>
 
 let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
