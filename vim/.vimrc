@@ -1,6 +1,7 @@
 set nocompatible
 
 """ Plugins
+
 " Autoload
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -66,6 +67,9 @@ Plug 'lifepillar/vim-cheat40'
 
 " Indent-level based motion
 Plug 'jeetsukumaran/vim-indentwise'
+
+" LSP
+Plug 'yegappan/lsp'
 
 call plug#end()
 
@@ -262,3 +266,19 @@ set statusline +=\ %.24{GitStatus()}
 " Row, column and total rows
 set statusline +=\ %3v\:%-3.4l\/%-4L
 set statusline +=\ [%n]
+
+" LSP
+let lspServers = [
+            \     {
+            \      'filetype': ['python'],
+            \      'path': 'jedils',
+            \      'args': []
+            \     },
+            \     {
+            \      'filetype': ['nim'],
+            \      'path': 'nimlsp',
+            \      'args': []
+            \     }
+            \    ]
+
+call LspAddServer(lspServers)
