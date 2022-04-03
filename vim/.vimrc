@@ -212,7 +212,7 @@ set foldlevelstart=1
 " `:echo synIDattr(synID(line('.'), col('.'), 1), 'name')`
 set cursorline
 set background=light
-colorscheme PaperColor
+colorscheme onehalflight
 
 if has("gui_running")
     set guifont=Hack\ 12

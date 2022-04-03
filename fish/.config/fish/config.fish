@@ -31,5 +31,9 @@ end
 
 source ~/.asdf/asdf.fish
 
+if test -e ~/local.fish
+    source ~/local.fish
+end
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
