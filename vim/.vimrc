@@ -34,8 +34,18 @@ Plug 'vimoxide/vim-cinnabar'
 Plug 'srcery-colors/srcery-vim'
 
 " snippets
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine
+Plug 'honza/vim-snippets'
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-e>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Ale
 let g:ale_completion_enabled = 1
@@ -191,15 +201,8 @@ nnoremap <Leader>kw :%s/\s\+$//<CR>
 noremap <silent><F9> :FZF<CR>
 " clear the search highlights
 nnoremap <C-l> :nohlsearch<CR>
-" Neosnippet key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-e>     <Plug>(neosnippet_expand_or_jump)
-smap <C-e>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-e>     <Plug>(neosnippet_expand_target)
 " Open location list
 nnoremap <leader>l :lopen<CR>
-
-let g:neosnippet#snippets_directory='~/dotfiles/snips'
 
 " markdown
 " this options do not work in after/ftplugin
