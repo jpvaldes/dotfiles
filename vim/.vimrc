@@ -49,6 +49,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Ale
 let g:ale_completion_enabled = 1
+let g:ale_floating_preview = 1
+" let g:ale_cursor_detail = 1
+let g:ale_echo_msg_format = '%linter%:%code%: %s'
 Plug 'dense-analysis/ale'
 
  " Autocomplete
@@ -103,6 +106,9 @@ set nostartofline
 " set iskeyword-=_
 " use number column also for signs
 set signcolumn=number
+" Vim 9 allows pop up completion matches and fuzzy matching
+set wildmenu
+set wildoptions=pum,fuzzy
 " Swap and backup files under .vim instead of cluttering the working dir
 " Step 1: check dir exists and create if needed
 if !isdirectory($HOME . "/.vim/backup")
