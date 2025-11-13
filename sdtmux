@@ -1,5 +1,0 @@
-# Start a tmux session using systemd-run
-# That way the session does not close when connection closes
-# better as alias
-
-systemd-run --scope --user tmux
