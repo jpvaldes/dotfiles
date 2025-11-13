@@ -53,6 +53,6 @@ set laststatus=2
 " set ruler
 set wildmenu
 " Load matchit.vim if the user hasn't installed a newer version
-if !exists('g:loaded_mathit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
     runtime! macros/matchit.vim
 endif
