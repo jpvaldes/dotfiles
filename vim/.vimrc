@@ -15,8 +15,10 @@ else
 endif
 
 " general purpose
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+if v:version < 901
+    Plug 'tpope/vim-commentary'
+endif
 
 " git plugins
 Plug 'tpope/vim-fugitive'
@@ -25,6 +27,10 @@ Plug 'airblade/vim-gitgutter'
 " see contents of registers in insert mode
 Plug 'junegunn/vim-peekaboo'
 
+" copy-paste to clipboard using OSC52
+" implementation
+Plug 'ojroques/vim-oscyank'
+
 " colorschemes
 Plug 'chriskempson/base16-vim'
 Plug 'joshdick/onedark.vim'
@@ -32,6 +38,13 @@ Plug 'patstockwell/vim-monokai-tasty'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'vimoxide/vim-cinnabar'
 Plug 'srcery-colors/srcery-vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'wuelnerdotexe/vim-enfocado'
+let g:enfocado_style='neon'
+let g:enfocado_plugins=[
+    \ 'ale',
+    \ 'fzf'
+    \ ]
 
 " snippets
 " Track the engine.
@@ -49,6 +62,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Ale
 let g:ale_completion_enabled = 1
+let g:ale_floating_preview = 1
+" let g:ale_cursor_detail = 1
+let g:ale_echo_msg_format = '%linter%:%code%:%s'
 Plug 'dense-analysis/ale'
 
  " Autocomplete
@@ -74,10 +90,13 @@ Plug 'jpalardy/vim-slime'
 " Default bind is <leader>?
 Plug 'lifepillar/vim-cheat40'
 
-" Indent-level based motion
-Plug 'jeetsukumaran/vim-indentwise'
-
 call plug#end()
+
+" a similar plugin to tpope commentary comes bundled with 9.1
+if v:version > 900
+    packadd comment
+    packadd matchit
+endif
 
 """ Basics
 let mapleader = ','
@@ -103,6 +122,9 @@ set nostartofline
 " set iskeyword-=_
 " use number column also for signs
 set signcolumn=number
+" Vim 9 allows pop up completion matches and fuzzy matching
+set wildmenu
+set wildoptions=pum,fuzzy
 " Swap and backup files under .vim instead of cluttering the working dir
 " Step 1: check dir exists and create if needed
 if !isdirectory($HOME . "/.vim/backup")
@@ -215,7 +237,7 @@ set foldlevelstart=1
 " `:echo synIDattr(synID(line('.'), col('.'), 1), 'name')`
 set cursorline
 set background=light
-colorscheme onehalflight
+colorscheme enfocado
 
 if has("gui_running")
     set guifont=Hack\ 12

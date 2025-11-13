@@ -11,6 +11,8 @@ if status is-interactive
     abbr --add --global gsts git stash show --text
 end
 
+bind \cg delete_history
+
 fish_add_path -p "$HOME/bin" "$HOME/.fzf/bin/"
 
 set EDITOR vim
